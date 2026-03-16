@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SLATE — Watch</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .audio-wrap {
+      position: absolute; top: 12px; right: 12px; z-index: 20;
+    }
+    .audio-btn {
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(0,0,0,0.65); backdrop-filter: blur(6px);
+      color: #fff; border: none; padding: 6px 12px;
+      border-radius: 8px; cursor: pointer; font-size: 13px; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .audio-btn:hover { background: rgba(0,0,0,0.85); }
+    .audio-menu {
+      position: absolute; right: 0; top: calc(100% + 6px);
+      background: rgba(15,15,15,0.95); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; overflow: hidden; min-width: 160px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      display: none;
+    }
+    .audio-menu.open { display: block; }
+    .audio-menu-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4); text-transform: uppercase;
+      padding: 10px 14px 6px;
+    }
+    .audio-track-btn {
+      display: flex; align-items: center; gap: 8px;
+      width: 100%; padding: 8px 14px;
+      color: #fff; background: none; border: none;
+      cursor: pointer; font-size: 13px; font-family: inherit; text-align: left;
+      transition: background 0.1s;
+    }
+    .audio-track-btn:hover { background: rgba(255,255,255,0.08); }
+    .audio-track-btn.active { color: #60a5fa; }
+    .audio-track-btn .track-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: currentColor; flex-shrink: 0; opacity: 0;
+    }
+    .audio-track-btn.active .track-dot { opacity: 1; }
+  </style>
+</head>
+<body class="watch-page">
+
+<header class="watch-header">
+  <a class="watch-back" href="/browse.html" id="back-link">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+    Back
+  </a>
+  <div class="watch-title-wrap" id="watch-title-wrap">
+    <span class="watch-title" id="watch-title"></span>
+  </div>
+</header>
+
+<div class="watch-video-wrap" style="position:relative">
+  <video class="watch-video" id="player" controls playsinline></video>
+
+  <!-- Audio track selector -->
+  <div class="audio-wrap" id="audio-wrap" style="display:none">
+    <button class="audio-btn" id="audio-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      </svg>
+      Audio
+    </button>
+    <div class="audio-menu" id="audio-menu">
+      <div class="audio-menu-label">Audio Track</div>
+      <div id="audio-track-list"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/hls.min.js"></script>
+<script type="module">
+  import { requireLogin, addToHistory, updateProgress } from '/js/api.js';
+  import { initTheme } from '/js/utils.js';
+  initTheme();
+
+  await requireLogin();
+
+  const params = new URLSearchParams(location.search);
+  let rawUrl = params.get('url');
+
+  // Apply preferred audio track index (set in Settings)
+  const prefAudioIdx = parseInt(localStorage.getItem('slate_audio_idx') ?? '-1');
+  if (prefAudioIdx >= 0 && rawUrl && rawUrl.includes('/stream/')) {
+    rawUrl = rawUrl.replace(
+      /(\/stream\/[^/]+\/)([^/]+)(\/[^/]+\/[^/]+\/playlist\.m3u8)/,
+      `$1${prefAudioIdx}$3`
+    );
+  }
+  const title = params.get('title') || '';
+  const tmdbId = params.get('tmdbId');
+  const mediaType = params.get('mediaType') || 'movie';
+  const startProgress = parseFloat(params.get('startProgress') || '0');
+  let season = params.get('season');
+  let episode = params.get('episode');
+  const episodeName = params.get('episodeName') || '';
+
+  // Fallback: split old-style titles like "Show Name S01E01" automatically
+  let displayTitle = title;
+  let episodeLabel = null;
+  if (season && episode) {
+    episodeLabel = `S${Number(season)}E${Number(episode)}${episodeName ? ': ' + episodeName : ''}`;
+  } else {
+    const m = title.match(/^(.*?)\s+(S(\d+)E(\d+))$/i);
+    if (m) {
+      displayTitle = m[1];
+      episodeLabel = m[2].toUpperCase();
+    }
+  }
+
+  document.title = episodeLabel ? `SLATE — ${displayTitle} ${episodeLabel}` : `SLATE — ${title}`;
+  document.getElementById('watch-title').textContent = displayTitle;
+  if (episodeLabel) {
+    const sub = document.createElement('span');
+    sub.className = 'watch-subtitle';
+    sub.textContent = episodeLabel;
+    document.getElementById('watch-title-wrap').appendChild(sub);
+  }
+
+  if (!rawUrl) {
+    document.querySelector('.watch-video-wrap').innerHTML = '<p style="color:#fff;padding:40px">No stream URL provided.</p>';
+    throw new Error('no url');
+  }
+
+  const isHls = params.get('hls') === '1'
+    || rawUrl.includes('.m3u8')
+    || rawUrl.includes('/hls')
+    || rawUrl.includes('torbox.app');
+
+  const streamUrl = isHls
+    ? `/api/hls?url=${encodeURIComponent(rawUrl)}`
+    : rawUrl;
+
+  console.log('[SLATE] isHls:', isHls, '| url:', rawUrl.slice(0, 80));
+
+  const video = document.getElementById('player');
+  let hlsInstance = null;
+  let currentTrackIndex = null; // for torbox muxed track switching
+
+  // ── Audio track selector ──────────────────────────────────────────────────
+  const audioWrap = document.getElementById('audio-wrap');
+  const audioBtn  = document.getElementById('audio-btn');
+  const audioMenu = document.getElementById('audio-menu');
+  const trackList = document.getElementById('audio-track-list');
+
+  audioBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    audioMenu.classList.toggle('open');
+  });
+  document.addEventListener('click', () => audioMenu.classList.remove('open'));
+
+  function buildTrackMenu(tracks, type) {
+    if (!tracks.length) return;
+    audioWrap.style.display = '';
+    trackList.innerHTML = '';
+
+    // Determine currently-active index from the current rawUrl
+    const activeIdxMatch = rawUrl?.match(/\/stream\/[^/]+\/([^/]+)\//);
+    const activeIdx = activeIdxMatch ? parseInt(activeIdxMatch[1]) : -1;
+
+    tracks.forEach((t, i) => {
+      const btn = document.createElement('button');
+      const isCurrent = type === 'torbox'
+        ? (t.index === activeIdx || (activeIdx === -1 && t.isDefault))
+        : t.isDefault;
+      btn.className = 'audio-track-btn' + (isCurrent ? ' active' : '');
+      const label = t.name + (t.lang ? ` (${t.lang})` : '');
+      btn.innerHTML = `<span class="track-dot"></span>${label}`;
+
+      btn.addEventListener('click', () => {
+        trackList.querySelectorAll('.audio-track-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        audioMenu.classList.remove('open');
+
+        if (type === 'hls' && hlsInstance) {
+          // HLS.js native audio track switch
+          hlsInstance.audioTrack = i;
+        } else if (type === 'torbox') {
+          // Swap audio index in the TorBox CDN URL and reload
+          const newRawUrl = rawUrl.replace(
+            /(\/stream\/[^/]+\/)([^/]+)(\/[^/]+\/[^/]+\/playlist\.m3u8)/,
+            `$1${t.index}$3`
+          );
+          const newStreamUrl = `/api/hls?url=${encodeURIComponent(newRawUrl)}`;
+          const pos = video.currentTime;
+          if (hlsInstance) {
+            hlsInstance.loadSource(newStreamUrl);
+            hlsInstance.once(Hls.Events.MANIFEST_PARSED, () => {
+              video.currentTime = pos;
+              video.play().catch(() => {});
+            });
+          } else {
+            video.src = newStreamUrl;
+            video.currentTime = pos;
+            video.play().catch(() => {});
+          }
+        }
+      });
+
+      trackList.appendChild(btn);
+    });
+  }
+
+  async function discoverTracks() {
+    try {
+      const res = await fetch(`/api/stream-tracks?url=${encodeURIComponent(rawUrl)}`);
+      const { tracks, type } = await res.json();
+      console.log('[SLATE] audio tracks discovered:', tracks, 'type:', type);
+      if (tracks.length > 1) buildTrackMenu(tracks, type);
+    } catch (e) {
+      console.log('[SLATE] track discovery failed:', e.message);
+    }
+  }
+
+  // ── Load video ────────────────────────────────────────────────────────────
+  function loadVideo(url) {
+    if (isHls || url.includes('.m3u8') || url.includes('/api/hls')) {
+      if (typeof Hls !== 'undefined' && Hls.isSupported()) {
+        console.log('[SLATE] using HLS.js');
+        hlsInstance = new Hls({
+          enableWorker: true,
+          startFragPrefetch: true,
+          lowLatencyMode: false,
+        });
+        hlsInstance.loadSource(url);
+        hlsInstance.attachMedia(video);
+
+        // Error recovery — preserve playback position
+        let recovering = false;
+        hlsInstance.on(Hls.Events.ERROR, (_, data) => {
+          if (!data.fatal || recovering) return;
+          recovering = true;
+          const pos = video.currentTime;
+          if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+            hlsInstance.startLoad();
+            recovering = false;
+          } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+            hlsInstance.recoverMediaError();
+            hlsInstance.once(Hls.Events.MANIFEST_PARSED, () => {
+              video.currentTime = pos;
+              video.play().catch(() => {});
+              recovering = false;
+            });
+          } else {
+            recovering = false;
+          }
+        });
+
+        hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+          discoverTracks();
+        });
+      } else {
+        video.src = url;
+        video.addEventListener('loadedmetadata', discoverTracks, { once: true });
+      }
+    } else {
+      video.src = url;
+    }
+  }
+
+  loadVideo(streamUrl);
+
+  // Resume from saved progress
+  let seeked = false;
+  video.addEventListener('loadedmetadata', () => {
+    if (!seeked && startProgress > 0.01 && startProgress < 0.99) {
+      video.currentTime = video.duration * startProgress;
+      seeked = true;
+    }
+  });
+
+  // Save to history on start
+  const posterPath = params.get('posterPath') || null;
+  if (tmdbId) {
+    const entry = { id: Number(tmdbId), type: mediaType, title, posterPath, progress: startProgress };
+    if (season && episode) {
+      entry.season = Number(season);
+      entry.episode = Number(episode);
+      if (episodeName) entry.episodeName = episodeName;
+    }
+    addToHistory(entry);
+  }
+
+  // Update progress periodically
+  let progressTimer;
+  function saveProgress() {
+    if (!tmdbId || !video.duration) return;
+    const pct = video.currentTime / video.duration;
+    updateProgress(Number(tmdbId), mediaType, pct);
+  }
+  video.addEventListener('timeupdate', () => {
+    clearTimeout(progressTimer);
+    progressTimer = setTimeout(saveProgress, 5000);
+  });
+  window.addEventListener('beforeunload', saveProgress);
+
+  if (params.get('fullscreen') === '1') {
+    video.addEventListener('canplay', () => {
+      if (document.fullscreenEnabled) video.requestFullscreen().catch(() => {});
+    }, { once: true });
+  }
+</script>
+</body>
+</html>

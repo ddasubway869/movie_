@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SLATE — Watchlist</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<header class="header">
+  <a class="header-logo" href="/browse.html">SLATE</a>
+  <div class="header-spacer"></div>
+  <nav class="header-nav">
+    <a class="header-link" href="/browse.html">Browse</a>
+    <a class="header-link" href="/history.html">History</a>
+    <a class="header-link" href="/settings.html">Settings</a>
+    <button class="header-icon-btn" id="theme-btn" title="Toggle theme">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+    <button class="header-icon-btn" id="logout-btn" title="Sign out">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+<main class="page-main">
+  <div class="page-header">
+    <h1 class="page-title">Watchlist</h1>
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="movie">Movies</button>
+      <button class="tab-btn" data-tab="tv">TV Shows</button>
+    </div>
+  </div>
+
+  <div id="grid-container"></div>
+</main>
+
+<!-- Side Panel -->
+<div class="panel-backdrop" id="panel-backdrop"></div>
+<div class="side-panel" id="side-panel">
+  <div class="panel-close-bar">
+    <button class="panel-close-btn" id="panel-close">✕</button>
+  </div>
+  <div class="panel-body" id="panel-body"></div>
+</div>
+
+<script type="module">
+  import { requireLogin, logout, getWatchlist, removeFromWatchlist, getMovieDetails, getTVDetails, addToWatchlist, searchTorrents, startStreaming, getSeasonDetails } from '/js/api.js';
+  import { initTheme, toggleTheme, posterURL, getYear, ratingToPercent, formatBytes } from '/js/utils.js';
+  initTheme();
+
+  await requireLogin();
+
+  document.getElementById('theme-btn').addEventListener('click', toggleTheme);
+  document.getElementById('logout-btn').addEventListener('click', async () => {
+    await logout(); window.location.href = '/';
+  });
+
+  let items = [];
+  let activeTab = 'movie';
+  let panelId = null, panelType = null;
+  let panelInWatchlist = false;
+
+  // ── Load & render ──────────────────────────────────────────────────────────
+  async function load() {
+    const container = document.getElementById('grid-container');
+    container.innerHTML = renderSkeletons();
+    try {
+      items = await getWatchlist();
+    } catch {}
+    renderGrid();
+  }
+
+  function renderSkeletons() {
+    return `<div class="card-grid">${Array.from({length:12}, () =>
+      `<div><div class="skeleton" style="aspect-ratio:2/3;border-radius:8px"></div><div class="skeleton" style="height:14px;width:75%;margin-top:8px"></div></div>`
+    ).join('')}</div>`;
+  }
+
+  function renderGrid() {
+    const container = document.getElementById('grid-container');
+    const filtered = items.filter(i => i.media_type === activeTab);
+    if (filtered.length === 0) {
+      container.innerHTML = `<div class="empty-state">
+        <p class="empty-state-text">No ${activeTab === 'movie' ? 'movies' : 'TV shows'} in your watchlist yet.</p>
+        <p class="empty-state-hint">Open any title and click "Add to Watchlist".</p>
+      </div>`;
+      return;
+    }
+    container.innerHTML = `<div class="card-grid">${filtered.map(item => {
+      const poster = item.poster_path ? posterURL(item.poster_path, 'w300') : null;
+      return `<div class="media-card" data-id="${item.tmdb_id}" data-type="${item.media_type}">
+        <button class="media-card-remove" data-id="${item.tmdb_id}" data-type="${item.media_type}" title="Remove">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+        <div class="media-card-poster">
+          ${poster ? `<img src="${poster}" alt="${escHtml(item.title)}" loading="lazy" />` : `<div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text-hint)">No Poster</div>`}
+        </div>
+        <div class="media-card-title">${escHtml(item.title)}</div>
+      </div>`;
+    }).join('')}</div>`;
+
+    // Card click → side panel
+    container.querySelectorAll('.media-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.media-card-remove')) return;
+        openPanel(Number(card.dataset.id), card.dataset.type);
+      });
+    });
+
+    // Remove buttons
+    container.querySelectorAll('.media-card-remove').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        const id = Number(btn.dataset.id), type = btn.dataset.type;
+        items = items.filter(i => !(i.tmdb_id === id && i.media_type === type));
+        renderGrid();
+        await removeFromWatchlist(id, type);
+      });
+    });
+  }
+
+  // ── Tabs ───────────────────────────────────────────────────────────────────
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeTab = btn.dataset.tab;
+      renderGrid();
+    });
+  });
+
+  // ── Side Panel ─────────────────────────────────────────────────────────────
+  async function openPanel(id, type) {
+    panelId = id; panelType = type;
+    const backdrop = document.getElementById('panel-backdrop');
+    const panel = document.getElementById('side-panel');
+    const body = document.getElementById('panel-body');
+
+    body.innerHTML = `<div style="display:flex;flex-direction:column;gap:12px">
+      <div class="skeleton-strong" style="height:28px;width:60%;border-radius:6px"></div>
+      <div class="skeleton" style="height:300px;border-radius:10px"></div>
+    </div>`;
+
+    setTimeout(() => { backdrop.classList.add('visible'); panel.classList.add('visible'); }, 10);
+
+    try {
+      const [data, watchlist] = await Promise.all([
+        type === 'movie' ? getMovieDetails(id) : getTVDetails(id),
+        getWatchlist(),
+      ]);
+      panelInWatchlist = watchlist.some(i => i.tmdb_id === id && i.media_type === type);
+      renderPanel(data, type);
+    } catch {
+      body.innerHTML = `<p style="color:var(--text-secondary)">Failed to load details.</p>`;
+    }
+  }
+
+  function closePanel() {
+    const backdrop = document.getElementById('panel-backdrop');
+    const panel = document.getElementById('side-panel');
+    backdrop.classList.remove('visible');
+    panel.classList.remove('visible');
+    setTimeout(() => { document.getElementById('panel-body').innerHTML = ''; panelId = null; }, 350);
+  }
+
+  document.getElementById('panel-backdrop').addEventListener('click', closePanel);
+  document.getElementById('panel-close').addEventListener('click', closePanel);
+
+  function renderPanel(data, type) {
+    const title = data.title || data.name || '';
+    const date = data.release_date || data.first_air_date || '';
+    const genres = data.genres || [];
+    const poster = data.poster_path ? posterURL(data.poster_path, 'w300') : null;
+
+    document.getElementById('panel-body').innerHTML = `
+      <div class="panel-header">
+        ${poster ? `<img class="panel-poster" src="${poster}" alt="${escHtml(title)}" width="100" height="150" />` : ''}
+        <div class="panel-meta">
+          <h2 class="panel-title">${escHtml(title)}</h2>
+          <p class="panel-subtitle">
+            ${getYear(date)}${data.runtime ? ` · ${data.runtime} min` : ''}${data.number_of_seasons ? ` · ${data.number_of_seasons} season${data.number_of_seasons > 1 ? 's' : ''}` : ''}${data.vote_average > 0 ? ` · ${ratingToPercent(data.vote_average)}` : ''}
+          </p>
+          ${genres.length > 0 ? `<div class="panel-genres">${genres.slice(0,3).map(g => `<span class="badge">${escHtml(g.name)}</span>`).join('')}</div>` : ''}
+        </div>
+      </div>
+
+      <button class="btn ${panelInWatchlist ? 'btn-primary' : 'btn-ghost'}" id="wl-btn" style="margin-bottom:20px">
+        ${panelInWatchlist
+          ? `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> In Watchlist`
+          : `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add to Watchlist`}
+      </button>
+
+      ${data.overview ? `<p class="panel-overview">${escHtml(data.overview)}</p>` : ''}
+
+      ${type === 'movie' ? `
+        <p class="panel-section-title">Sources</p>
+        <div id="sources-area"></div>
+      ` : data.seasons ? `
+        <p class="panel-section-title">Episodes</p>
+        <div id="seasons-area"></div>
+      ` : ''}
+    `;
+
+    // Watchlist button
+    document.getElementById('wl-btn').addEventListener('click', async () => {
+      const btn = document.getElementById('wl-btn');
+      btn.disabled = true;
+      if (panelInWatchlist) {
+        await removeFromWatchlist(panelId, panelType);
+        panelInWatchlist = false;
+        items = items.filter(i => !(i.tmdb_id === panelId && i.media_type === panelType));
+        renderGrid();
+      } else {
+        await addToWatchlist({ tmdbId: panelId, mediaType: panelType, title, posterPath: data.poster_path });
+        panelInWatchlist = true;
+        items.unshift({ tmdb_id: panelId, media_type: panelType, title, poster_path: data.poster_path, added_at: new Date().toISOString() });
+        renderGrid();
+      }
+      renderPanel(data, type);
+    });
+
+    if (type === 'movie') loadSources(panelId, 'movie', title);
+    else if (data.seasons) loadSeasons(panelId, data.name || '', data.seasons);
+  }
+
+  // ── Torrent sources ────────────────────────────────────────────────────────
+  async function loadSources(tmdbId, mediaType, title) {
+    const area = document.getElementById('sources-area');
+    if (!area) return;
+    area.innerHTML = `<div class="sources-loading"><div class="spinner"></div> Searching…</div>`;
+    try {
+      const res = await searchTorrents(tmdbId, mediaType);
+      const torrents = res.data || [];
+      if (torrents.length === 0) {
+        area.innerHTML = `<p class="sources-empty">No sources found.</p>`; return;
+      }
+      area.innerHTML = `<div class="sources-list">${torrents.slice(0, 15).map(t => `
+        <div class="source-item" data-magnet="${escAttr(t.magnet)}" data-name="${escAttr(t.raw_title || t.name || '')}" data-cached="${t.cached ? '1' : '0'}">
+          ${t.cached ? `<span class="source-cached-badge">CACHED</span>` : ''}
+          <span class="source-name">${escHtml(t.raw_title || t.name || 'Unknown')}</span>
+          <span class="source-meta">${formatBytes(t.size || 0)}</span>
+        </div>`).join('')}</div>`;
+
+      area.querySelectorAll('.source-item').forEach(item => {
+        item.addEventListener('click', () => handleSourceClick(item.dataset.magnet, title, tmdbId, mediaType));
+      });
+    } catch {
+      area.innerHTML = `<p class="sources-empty">Failed to load sources.</p>`;
+    }
+  }
+
+  // ── Season/Episode picker ──────────────────────────────────────────────────
+  async function loadSeasons(tvId, tvName, seasons) {
+    const area = document.getElementById('seasons-area');
+    if (!area) return;
+    const realSeasons = seasons.filter(s => s.season_number > 0);
+    if (realSeasons.length === 0) { area.innerHTML = `<p class="sources-empty">No seasons available.</p>`; return; }
+
+    area.innerHTML = `
+      <select class="season-select" id="season-select">
+        ${realSeasons.map(s => `<option value="${s.season_number}">Season ${s.season_number}</option>`).join('')}
+      </select>
+      <div id="episodes-list"><div class="sources-loading"><div class="spinner"></div> Loading episodes…</div></div>
+    `;
+
+    async function loadEpisodes(seasonNum) {
+      const epList = document.getElementById('episodes-list');
+      epList.innerHTML = `<div class="sources-loading"><div class="spinner"></div> Loading…</div>`;
+      try {
+        const season = await getSeasonDetails(tvId, seasonNum);
+        const eps = season.episodes || [];
+        epList.innerHTML = `<div class="episodes-list">${eps.map(ep => `
+          <div class="episode-item" data-season="${seasonNum}" data-ep="${ep.episode_number}">
+            <span class="episode-num">E${ep.episode_number}</span>
+            <span class="episode-name">${escHtml(ep.name || `Episode ${ep.episode_number}`)}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>`).join('')}</div>`;
+
+        epList.querySelectorAll('.episode-item').forEach(item => {
+          item.addEventListener('click', () => {
+            const epTitle = `${tvName} S${String(seasonNum).padStart(2,'0')}E${String(item.dataset.ep).padStart(2,'0')}`;
+            handleEpisodeClick(tvId, tvName, Number(seasonNum), Number(item.dataset.ep), epTitle);
+          });
+        });
+      } catch {
+        epList.innerHTML = `<p class="sources-empty">Failed to load episodes.</p>`;
+      }
+    }
+
+    loadEpisodes(realSeasons[0].season_number);
+    document.getElementById('season-select').addEventListener('change', e => loadEpisodes(Number(e.target.value)));
+  }
+
+  async function handleEpisodeClick(tvId, tvName, season, episode, epTitle) {
+    const res = await searchTorrents(tvId, 'tv', season, episode);
+    const torrents = res.data || [];
+    if (torrents.length === 0) { showModal('No sources found', `No results found for ${epTitle}.`); return; }
+    const best = torrents[0];
+    handleSourceClick(best.magnet, epTitle, tvId, 'tv');
+  }
+
+  // ── Streaming flow ─────────────────────────────────────────────────────────
+  function handleSourceClick(magnet, title, tmdbId, mediaType) {
+    const modalEl = showProgressModal(title);
+    startStreaming(magnet, (pct, status) => {
+      modalEl.querySelector('.modal-progress-fill').style.width = pct + '%';
+      modalEl.querySelector('.modal-status').textContent = status;
+    }).then(({ url, filename }) => {
+      document.body.removeChild(modalEl);
+      const q = new URLSearchParams({ url, title, tmdbId, mediaType });
+      if (filename) q.set('filename', filename);
+      window.location.href = `/watch.html?${q}`;
+    }).catch(err => {
+      document.body.removeChild(modalEl);
+      showModal('Error', err.message);
+    });
+  }
+
+  function showProgressModal(title) {
+    const el = document.createElement('div');
+    el.className = 'modal-backdrop';
+    el.innerHTML = `<div class="modal">
+      <div class="modal-title">${escHtml(title)}</div>
+      <div class="modal-subtitle">Preparing stream…</div>
+      <div class="modal-progress"><div class="modal-progress-fill" style="width:0%"></div></div>
+      <div class="modal-status" style="margin-top:8px;font-size:12px;color:var(--text-secondary)">Starting…</div>
+    </div>`;
+    document.body.appendChild(el);
+    return el;
+  }
+
+  function showModal(title, msg) {
+    const el = document.createElement('div');
+    el.className = 'modal-backdrop';
+    el.innerHTML = `<div class="modal">
+      <div class="modal-title">${escHtml(title)}</div>
+      <div class="modal-subtitle">${escHtml(msg)}</div>
+      <button class="btn btn-primary" style="margin-top:16px">OK</button>
+    </div>`;
+    el.querySelector('button').addEventListener('click', () => document.body.removeChild(el));
+    document.body.appendChild(el);
+  }
+
+  function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function escAttr(s) { return String(s).replace(/"/g,'&quot;'); }
+
+  await load();
+</script>
+</body>
+</html>
