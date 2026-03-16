@@ -1,12 +1,16 @@
 import { DatabaseSync } from "node:sqlite";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
+import os from "os";
+// Note: no longer importing fileURLToPath — DB path is now home-dir based
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// Store the DB outside the app directory so it survives redeployments.
+// Priority: DB_PATH env var → ~/.slate/slate.db (home dir, always persistent)
+// The old ./data/ path was inside the app folder which hosting providers
+// can wipe on each deploy — never store user data there.
 const DB_DIR = process.env.DB_PATH
   ? path.dirname(process.env.DB_PATH)
-  : path.join(__dirname, "../data");
+  : path.join(os.homedir(), ".slate");
 const DB_PATH = process.env.DB_PATH || path.join(DB_DIR, "slate.db");
 
 let _db = null;
