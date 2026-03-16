@@ -115,12 +115,17 @@ app.get("/api/auth/me", async (req, res) => {
   const session = await getSession(req);
   if (!session) return res.status(401).json({ error: "Not authenticated" });
   const db = getDb();
-  const user = db.prepare("SELECT torbox_api_key FROM users WHERE id = ?").get(session.userId);
+  const user = db.prepare("SELECT id, torbox_api_key FROM users WHERE id = ?").get(session.userId);
+  // Ghost session: valid JWT but user was deleted or DB was wiped — force re-login
+  if (!user) {
+    res.clearCookie(COOKIE_NAME, { path: "/" });
+    return res.status(401).json({ error: "Session expired. Please sign in again." });
+  }
   res.json({
     userId: session.userId,
     username: session.username,
     email: session.email,
-    hasApiKey: !!(user?.torbox_api_key),
+    hasApiKey: !!(user.torbox_api_key),
   });
 });
 
@@ -492,6 +497,15 @@ app.use(express.static(join(__dirname, "public")));
 // Fallback: send index.html for unknown routes (SPA fallback not needed since multi-page)
 app.get("*", (req, res) => {
   res.sendFile(join(__dirname, "public", "index.html"));
+});
+
+// ─── Global error handler ─────────────────────────────────────────────────────
+// Catches any unhandled throw from route handlers (e.g. DB errors) so the app
+// logs the real message and returns a clean JSON 500 instead of hanging.
+app.use((err, req, res, next) => {
+  console.error(`[SLATE ERROR] ${req.method} ${req.path} →`, err.message, err.stack);
+  if (res.headersSent) return next(err);
+  res.status(500).json({ error: "Internal server error", detail: err.message });
 });
 
 // ─── Start ────────────────────────────────────────────────────────────────────

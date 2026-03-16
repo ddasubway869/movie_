@@ -20,6 +20,7 @@ function getDb() {
   fs.mkdirSync(DB_DIR, { recursive: true });
   const db = new DatabaseSync(DB_PATH);
   db.exec("PRAGMA journal_mode = WAL");
+  db.exec("PRAGMA busy_timeout = 5000"); // wait up to 5s on lock contention
   db.exec("PRAGMA foreign_keys = ON");
   initSchema(db);
   _db = db;
