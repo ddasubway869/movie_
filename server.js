@@ -445,13 +445,7 @@ app.get("/api/hls", async (req, res) => {
     const fetchHeaders = {};
     if (req.headers.range) fetchHeaders["Range"] = req.headers.range;
 
-    // Abort after 25s — Hostinger's reverse proxy kills connections at ~30s,
-    // so we must respond (even with an error) before that deadline.
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), 25000);
-
-    const upstream = await fetch(url, { headers: fetchHeaders, signal: ctrl.signal });
-    clearTimeout(timer);
+    const upstream = await fetch(url, { headers: fetchHeaders });
     if (!upstream.ok && upstream.status !== 206) {
       return res.status(upstream.status).send(`Upstream error: ${upstream.status}`);
     }

@@ -140,9 +140,9 @@
     || rawUrl.includes('/hls')
     || rawUrl.includes('torbox.app');
 
-  // Load TorBox CDN directly — bypasses Hostinger proxy (504 timeouts)
-  // Falls back to /api/hls proxy if CDN blocks CORS (caught in HLS error handler)
-  const streamUrl = rawUrl;
+  const streamUrl = isHls
+    ? `/api/hls?url=${encodeURIComponent(rawUrl)}`
+    : rawUrl;
 
   console.log('[SLATE] isHls:', isHls, '| url:', rawUrl.slice(0, 80));
 
@@ -194,7 +194,7 @@
             /(\/stream\/[^/]+\/)([^/]+)(\/[^/]+\/[^/]+\/playlist\.m3u8)/,
             `$1${t.index}$3`
           );
-          const newStreamUrl = newRawUrl;
+          const newStreamUrl = `/api/hls?url=${encodeURIComponent(newRawUrl)}`;
           const pos = video.currentTime;
           if (hlsInstance) {
             hlsInstance.loadSource(newStreamUrl);
