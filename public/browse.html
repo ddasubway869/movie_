@@ -277,7 +277,11 @@
             window.location.href = `/watch.html?${params}`;
           } catch (err) {
             modalEl.remove();
-            showModal('Playback failed', err.message || 'Could not start stream.');
+            if (err.code === 'NO_API_KEY') {
+              showModal('TorBox API key missing', 'Please add your TorBox API key in Settings before playing.');
+            } else {
+              showModal('Playback failed', err.message || 'Could not start stream.');
+            }
           }
           return;
         }
@@ -605,8 +609,10 @@
       area.querySelectorAll('.source-item').forEach(item => {
         item.addEventListener('click', () => handleSourceClick(item.dataset.magnet, title, tmdbId, mediaType, posterPath, progress));
       });
-    } catch {
-      area.innerHTML = `<p class="sources-empty">Failed to load sources.</p>`;
+    } catch (err) {
+      area.innerHTML = err.code === 'NO_API_KEY'
+        ? `<p class="sources-empty">No TorBox API key set. <a href="/settings.html" style="color:var(--accent);text-decoration:none;font-weight:600">Go to Settings →</a></p>`
+        : `<p class="sources-empty">Failed to load sources.</p>`;
     }
   }
 

@@ -90,6 +90,12 @@ export async function searchTorrents(tmdbId, mediaType, season, episode) {
   if (episode !== undefined && episode !== null) params.set("episode", episode);
   const res = await fetch(`/api/search?${params}`);
   const data = await res.json();
+  if (res.status === 401) {
+    const err = new Error(data.detail || "No TorBox API key configured");
+    err.code = "NO_API_KEY";
+    throw err;
+  }
+  if (!res.ok) throw new Error(data.detail || "Search failed");
   return { data: data.data?.torrents || data.data || [] };
 }
 
