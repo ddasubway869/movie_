@@ -234,13 +234,15 @@
           enableWorker: true,
           startFragPrefetch: true,
           lowLatencyMode: false,
-          // Buffer up to 60s ahead so minor network hiccups don't stall playback
-          maxBufferLength: 60,
-          maxMaxBufferLength: 120,
-          // Assume a fast connection by default so HLS.js picks high quality
-          // immediately instead of starting low and spending time ramping up
-          abrEwmaDefaultEstimate: 8000000, // 8 Mbps initial estimate
-          startLevel: -1, // auto-select best level for bandwidth
+          maxBufferLength: 30,
+          maxMaxBufferLength: 60,
+          // Conservative estimate — prevents HLS.js from immediately picking
+          // the highest quality and overloading the server-side proxy
+          abrEwmaDefaultEstimate: 4000000, // 4 Mbps
+          startLevel: -1,
+          fragLoadingMaxRetry: 6,
+          fragLoadingRetryDelay: 1000,
+          manifestLoadingMaxRetry: 3,
         });
         hlsInstance.loadSource(url);
         hlsInstance.attachMedia(video);
@@ -248,6 +250,7 @@
         // Error recovery — preserve playback position
         let recovering = false;
         hlsInstance.on(Hls.Events.ERROR, (_, data) => {
+          console.error('[SLATE] HLS error', data.type, data.details, 'fatal:', data.fatal, 'status:', data.response?.code);
           if (!data.fatal || recovering) return;
           recovering = true;
           const pos = video.currentTime;

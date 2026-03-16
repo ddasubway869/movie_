@@ -441,8 +441,12 @@ app.get("/api/hls", async (req, res) => {
   if (!url) return res.status(400).json({ error: "Missing url param" });
 
   try {
-    const upstream = await fetch(url);
-    if (!upstream.ok) {
+    // Forward Range header so seeking works correctly
+    const fetchHeaders = {};
+    if (req.headers.range) fetchHeaders["Range"] = req.headers.range;
+
+    const upstream = await fetch(url, { headers: fetchHeaders });
+    if (!upstream.ok && upstream.status !== 206) {
       return res.status(upstream.status).send(`Upstream error: ${upstream.status}`);
     }
 
@@ -459,14 +463,7 @@ app.get("/api/hls", async (req, res) => {
         return baseUrl + trimmed;
       }
       function proxyUrl(raw) {
-        const abs = absoluteUrl(raw);
-        // Only proxy M3U8 manifests — they are tiny text files that need
-        // URL-rewriting. Everything else (video segments, key files) goes
-        // DIRECTLY to TorBox CDN from the browser. This prevents Hostinger
-        // from double-transferring gigabytes of segment data which caused
-        // 30s+ buffering and playback failures on shared hosting.
-        const isManifest = abs.includes('.m3u8') || /\/hls\b/.test(abs);
-        return isManifest ? `/api/hls?url=${encodeURIComponent(abs)}` : abs;
+        return `/api/hls?url=${encodeURIComponent(absoluteUrl(raw))}`;
       }
 
       // Rewrite bare URL lines (segments / sub-playlists)
@@ -481,12 +478,24 @@ app.get("/api/hls", async (req, res) => {
       return res.send(rewritten);
     }
 
-    // Binary segment — stream without buffering
-    res.set({
+    // Binary segment — stream directly, forwarding size + range headers so
+    // HLS.js knows how much data to expect and seeking works properly
+    const resHeaders = {
       "Content-Type": contentType,
       "Access-Control-Allow-Origin": "*",
       "Cache-Control": "public, max-age=3600",
-    });
+    };
+    const contentLength = upstream.headers.get("content-length");
+    if (contentLength) resHeaders["Content-Length"] = contentLength;
+    const contentRange = upstream.headers.get("content-range");
+    if (contentRange) resHeaders["Content-Range"] = contentRange;
+    const acceptRanges = upstream.headers.get("accept-ranges");
+    if (acceptRanges) resHeaders["Accept-Ranges"] = acceptRanges;
+
+    // Disable socket timeout — segments can be large and must not be cut off mid-stream
+    if (req.socket) req.socket.setTimeout(0);
+
+    res.status(upstream.status).set(resHeaders);
     Readable.fromWeb(upstream.body).pipe(res);
   } catch (e) {
     res.status(502).json({ error: e.message || "Proxy fetch failed" });
