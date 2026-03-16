@@ -6,7 +6,9 @@ import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import bcrypt from "bcryptjs";
 
+import { randomBytes } from "node:crypto";
 import getDb from "./src/db.js";
+import { sendVerificationEmail } from "./src/email.js";
 import {
   signSession,
   verifySession,
@@ -42,13 +44,41 @@ app.post("/api/auth/register", async (req, res) => {
   if (existing) return res.status(409).json({ error: "Username or email already exists" });
 
   const hash = await bcrypt.hash(password, 12);
-  const result = db.prepare(
-    "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)"
-  ).run(username, email, hash);
+  const verifyToken = randomBytes(32).toString("hex");
+  const verifyExpires = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
 
-  const token = await signSession({ userId: result.lastInsertRowid, username, email });
-  res.cookie(COOKIE_NAME, token, sessionCookieOptions());
-  res.json({ userId: result.lastInsertRowid, username, email, hasApiKey: false });
+  const result = db.prepare(
+    "INSERT INTO users (username, email, password_hash, email_verified, verify_token, verify_expires) VALUES (?, ?, ?, 0, ?, ?)"
+  ).run(username, email, hash, verifyToken, verifyExpires);
+
+  // Send verification email (non-blocking — don't fail signup if email fails)
+  sendVerificationEmail(email, username, verifyToken).catch(err =>
+    console.error("Failed to send verification email:", err)
+  );
+
+  res.json({ userId: result.lastInsertRowid, username, email, needsVerification: true });
+});
+
+app.get("/api/auth/verify", (req, res) => {
+  const { token } = req.query;
+  if (!token) return res.redirect("/register.html?error=invalid-token");
+
+  const db = getDb();
+  const user = db.prepare("SELECT * FROM users WHERE verify_token = ?").get(token);
+
+  if (!user) return res.redirect("/register.html?error=invalid-token");
+  if (new Date(user.verify_expires) < new Date())
+    return res.redirect("/register.html?error=token-expired");
+
+  db.prepare(
+    "UPDATE users SET email_verified = 1, verify_token = NULL, verify_expires = NULL WHERE id = ?"
+  ).run(user.id);
+
+  // Sign session and redirect to browse
+  signSession({ userId: user.id, username: user.username, email: user.email }).then(sessionToken => {
+    res.cookie(COOKIE_NAME, sessionToken, sessionCookieOptions());
+    res.redirect("/browse.html");
+  });
 });
 
 app.post("/api/auth/login", async (req, res) => {
@@ -62,6 +92,9 @@ app.post("/api/auth/login", async (req, res) => {
 
   const ok = await bcrypt.compare(password, user.password_hash);
   if (!ok) return res.status(401).json({ error: "Invalid username or password" });
+
+  if (!user.email_verified)
+    return res.status(403).json({ error: "Please verify your email before logging in. Check your inbox." });
 
   const token = await signSession({ userId: user.id, username: user.username, email: user.email });
   res.cookie(COOKIE_NAME, token, sessionCookieOptions());

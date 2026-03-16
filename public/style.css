@@ -127,6 +127,11 @@ img { display: block; max-width: 100%; }
 .auth-footer { margin-top: 20px; text-align: center; font-size: 13px; color: var(--text-secondary); }
 .auth-footer a { font-weight: 500; color: var(--fg); text-decoration: underline; }
 .auth-error { padding: 10px 12px; border-radius: 8px; background: rgba(220,38,38,0.1); color: #dc2626; font-size: 13px; }
+.verify-icon { margin-bottom: 16px; color: var(--fg); opacity: 0.7; }
+.verify-msg { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; }
+.verify-msg strong { color: var(--fg); }
+.verify-hint { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.link-btn { background: none; border: none; padding: 0; font-size: 13px; color: var(--fg); text-decoration: underline; cursor: pointer; font-weight: 500; }
 
 /* ── Header ───────────────────────────────────────────────────────────────── */
 .header {

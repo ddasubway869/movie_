@@ -70,6 +70,9 @@ function initSchema(db) {
   try { db.exec("ALTER TABLE watch_history ADD COLUMN episode INTEGER"); } catch {}
   try { db.exec("ALTER TABLE watch_history ADD COLUMN episode_name TEXT"); } catch {}
   try { db.exec("ALTER TABLE watch_history ADD COLUMN watch_count INTEGER NOT NULL DEFAULT 1"); } catch {}
+  try { db.exec("ALTER TABLE users ADD COLUMN email_verified INTEGER NOT NULL DEFAULT 0"); } catch {}
+  try { db.exec("ALTER TABLE users ADD COLUMN verify_token TEXT"); } catch {}
+  try { db.exec("ALTER TABLE users ADD COLUMN verify_expires TEXT"); } catch {}
 }
 
 export default getDb;

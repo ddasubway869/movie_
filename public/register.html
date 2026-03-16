@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="auth-page">
-  <div class="auth-card">
+  <div class="auth-card" id="register-view">
     <h1 class="auth-title">Create account</h1>
     <form class="auth-form" id="register-form">
       <div id="error-msg" class="auth-error" style="display:none"></div>
@@ -30,6 +30,22 @@
       Already have an account? <a href="/">Sign in</a>
     </div>
   </div>
+
+  <!-- Check your email screen -->
+  <div class="auth-card" id="verify-view" style="display:none;text-align:center">
+    <div class="verify-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m2 7 10 7 10-7"/>
+      </svg>
+    </div>
+    <h1 class="auth-title">Check your email</h1>
+    <p class="verify-msg">We sent a verification link to <strong id="verify-email"></strong>. Click the link to activate your account.</p>
+    <p class="verify-hint">Didn't get it? Check your spam folder or <button class="link-btn" id="resend-btn">resend the email</button>.</p>
+    <div class="auth-footer" style="margin-top:24px">
+      Already verified? <a href="/">Sign in</a>
+    </div>
+  </div>
 </div>
 
 <script type="module">
@@ -38,6 +54,16 @@
   initTheme();
 
   getMe().then(user => { if (user) window.location.href = '/browse.html'; });
+
+  // Handle token-expired error from verify redirect
+  const params = new URLSearchParams(location.search);
+  if (params.get('error') === 'token-expired') {
+    document.getElementById('error-msg').textContent = 'Your verification link has expired. Please register again.';
+    document.getElementById('error-msg').style.display = 'block';
+  } else if (params.get('error') === 'invalid-token') {
+    document.getElementById('error-msg').textContent = 'Invalid verification link. Please register again.';
+    document.getElementById('error-msg').style.display = 'block';
+  }
 
   const form = document.getElementById('register-form');
   const errorMsg = document.getElementById('error-msg');
@@ -48,13 +74,17 @@
     errorMsg.style.display = 'none';
     submitBtn.disabled = true;
     submitBtn.textContent = 'Creating account…';
+    const email = document.getElementById('email').value.trim();
     try {
       await register(
         document.getElementById('username').value.trim(),
-        document.getElementById('email').value.trim(),
+        email,
         document.getElementById('password').value
       );
-      window.location.href = '/browse.html';
+      // Show check-your-email screen
+      document.getElementById('register-view').style.display = 'none';
+      document.getElementById('verify-email').textContent = email;
+      document.getElementById('verify-view').style.display = '';
     } catch (err) {
       errorMsg.textContent = err.message;
       errorMsg.style.display = 'block';
