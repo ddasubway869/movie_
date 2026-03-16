@@ -445,7 +445,13 @@ app.get("/api/hls", async (req, res) => {
     const fetchHeaders = {};
     if (req.headers.range) fetchHeaders["Range"] = req.headers.range;
 
-    const upstream = await fetch(url, { headers: fetchHeaders });
+    // Abort after 25s — Hostinger's reverse proxy kills connections at ~30s,
+    // so we must respond (even with an error) before that deadline.
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 25000);
+
+    const upstream = await fetch(url, { headers: fetchHeaders, signal: ctrl.signal });
+    clearTimeout(timer);
     if (!upstream.ok && upstream.status !== 206) {
       return res.status(upstream.status).send(`Upstream error: ${upstream.status}`);
     }
@@ -498,6 +504,9 @@ app.get("/api/hls", async (req, res) => {
     res.status(upstream.status).set(resHeaders);
     Readable.fromWeb(upstream.body).pipe(res);
   } catch (e) {
+    if (e.name === "AbortError") {
+      return res.status(504).json({ error: "Upstream timeout — TorBox CDN did not respond in time" });
+    }
     res.status(502).json({ error: e.message || "Proxy fetch failed" });
   }
 });
