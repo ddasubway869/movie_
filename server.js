@@ -460,11 +460,13 @@ app.get("/api/hls", async (req, res) => {
       }
       function proxyUrl(raw) {
         const abs = absoluteUrl(raw);
-        // Route all URLs (manifests AND segments) through our proxy.
-        // This avoids CORS issues when the browser fetches from TorBox CDN
-        // with Origin: https://slate.arvl.app — TorBox CDN may not whitelist
-        // arbitrary origins, so we let the server handle all fetches server-side.
-        return `/api/hls?url=${encodeURIComponent(abs)}`;
+        // Only proxy M3U8 manifests — they are tiny text files that need
+        // URL-rewriting. Everything else (video segments, key files) goes
+        // DIRECTLY to TorBox CDN from the browser. This prevents Hostinger
+        // from double-transferring gigabytes of segment data which caused
+        // 30s+ buffering and playback failures on shared hosting.
+        const isManifest = abs.includes('.m3u8') || /\/hls\b/.test(abs);
+        return isManifest ? `/api/hls?url=${encodeURIComponent(abs)}` : abs;
       }
 
       // Rewrite bare URL lines (segments / sub-playlists)

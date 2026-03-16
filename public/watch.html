@@ -234,6 +234,13 @@
           enableWorker: true,
           startFragPrefetch: true,
           lowLatencyMode: false,
+          // Buffer up to 60s ahead so minor network hiccups don't stall playback
+          maxBufferLength: 60,
+          maxMaxBufferLength: 120,
+          // Assume a fast connection by default so HLS.js picks high quality
+          // immediately instead of starting low and spending time ramping up
+          abrEwmaDefaultEstimate: 8000000, // 8 Mbps initial estimate
+          startLevel: -1, // auto-select best level for bandwidth
         });
         hlsInstance.loadSource(url);
         hlsInstance.attachMedia(video);
