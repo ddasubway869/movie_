@@ -160,12 +160,13 @@ function setStreamCache(hash, info) {
 }
 
 // Full flow: add magnet → wait → get stream URL
-export async function startStreaming(magnet, onProgress) {
+export async function startStreaming(magnet, onProgress, season, episode) {
   const hash = extractHashFromMagnet(magnet);
   const { pickVideoFile } = await import("/js/utils.js");
 
   // Fast path: if we've played this before, skip createTorrent + listTorrents entirely
-  const cached = getStreamCache(hash);
+  // (bypass cache when season/episode given — file selection may differ per episode)
+  const cached = season == null ? getStreamCache(hash) : null;
   if (cached) {
     onProgress(90, "Getting stream URL…");
     const streamRes = await createStream(cached.torrentId, cached.fileId);
@@ -202,14 +203,14 @@ export async function startStreaming(magnet, onProgress) {
   }
 
   onProgress(100, "Getting stream URL…");
-  const file = pickVideoFile(torrent.files);
+  const file = pickVideoFile(torrent.files, season, episode);
   if (!file) throw new Error("No video file found");
 
   const streamRes = await createStream(torrentId, file.id);
   if (!streamRes.success || !streamRes.data) throw new Error(streamRes.detail || "Failed to get stream URL");
 
-  // Cache for next time so we can skip straight to createStream
-  setStreamCache(hash, { torrentId, fileId: file.id, filename: file.name });
+  // Cache for movies only — TV episodes must re-select file per episode
+  if (season == null) setStreamCache(hash, { torrentId, fileId: file.id, filename: file.name });
 
   return { url: streamRes.data, filename: file.name };
 }

@@ -14,13 +14,29 @@ export function extractHashFromMagnet(magnet) {
 
 const VIDEO_EXTENSIONS = [".mp4", ".mkv", ".avi", ".webm", ".mov", ".m4v", ".wmv"];
 
-export function pickVideoFile(files) {
+export function pickVideoFile(files, season, episode) {
   const videoFiles = files.filter((f) =>
     VIDEO_EXTENSIONS.some((ext) => f.name.toLowerCase().endsWith(ext))
   );
-  if (videoFiles.length === 0)
-    return files.length > 0 ? files.reduce((a, b) => (a.size > b.size ? a : b)) : null;
-  return videoFiles.reduce((a, b) => (a.size > b.size ? a : b));
+  const pool = videoFiles.length > 0 ? videoFiles : files;
+  if (pool.length === 0) return null;
+
+  // If season+episode provided, try to match by filename before falling back to largest
+  if (season != null && episode != null) {
+    const s = String(season).padStart(2, "0");
+    const e = String(episode).padStart(2, "0");
+    const patterns = [
+      new RegExp(`S${s}E${e}`, "i"),              // S01E01
+      new RegExp(`${parseInt(season)}[xX]${e}`),  // 1x01
+      new RegExp(`\\.${s}${e}\\.`),               // .0101.
+    ];
+    for (const pat of patterns) {
+      const match = pool.find((f) => pat.test(f.name));
+      if (match) return match;
+    }
+  }
+
+  return pool.reduce((a, b) => (a.size > b.size ? a : b));
 }
 
 export function isBrowserPlayable(filename) {

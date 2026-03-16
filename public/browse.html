@@ -677,7 +677,8 @@
       const stat = modalEl.querySelector('.modal-status');
       if (fill) fill.style.width = pct + '%';
       if (stat) stat.textContent = status;
-    }).then(({ url, filename }) => {
+    }, episodeInfo?.season, episodeInfo?.episode)
+    .then(({ url, filename }) => {
       if (document.body.contains(modalEl)) document.body.removeChild(modalEl);
       const q = new URLSearchParams({ url, title, mediaType, hls: '1' });
       if (tmdbId) q.set('tmdbId', String(tmdbId));
