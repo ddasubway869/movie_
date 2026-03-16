@@ -455,11 +455,11 @@ app.get("/api/hls", async (req, res) => {
       }
       function proxyUrl(raw) {
         const abs = absoluteUrl(raw);
-        // Only route sub-playlists through our proxy (needed for CORS + URL rewriting).
-        // Segments go directly to TorBox's CDN — they support CORS and proxying
-        // gigabytes of 4K video through localhost kills performance.
-        if (abs.includes(".m3u8")) return `/api/hls?url=${encodeURIComponent(abs)}`;
-        return abs;
+        // Route all URLs (manifests AND segments) through our proxy.
+        // This avoids CORS issues when the browser fetches from TorBox CDN
+        // with Origin: https://slate.arvl.app — TorBox CDN may not whitelist
+        // arbitrary origins, so we let the server handle all fetches server-side.
+        return `/api/hls?url=${encodeURIComponent(abs)}`;
       }
 
       // Rewrite bare URL lines (segments / sub-playlists)

@@ -364,9 +364,8 @@
         const btn = e.currentTarget;
         const marking = !watchedIds.has(key);
         const rewindSVG = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/></svg>`;
-        const checkSVG  = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
         if (marking) {
-          // First time marking watched
+          // First time marking watched — optimistic UI update then re-render
           watchedIds.add(key);
           btn.classList.add('active');
           btn.title = 'Watch again';
@@ -374,13 +373,16 @@
           await addToHistory({ id, type, title: name, posterPath, progress: 1 });
           history = history.filter(h => !(h.id === id && h.type === type));
           history.unshift({ id, type, title: name, posterPath, progress: 1 });
-          renderContinueWatching();
+          renderAll(); // re-render CW + marquee (shows new watch_count, removes from CW)
         } else {
-          // Already watched — log another watch (increments count), keep rewind icon
+          // Already watched — log another play, flash feedback on button
+          btn.style.opacity = '0.4';
           await addToHistory({ id, type, title: name, posterPath, progress: 1 });
-          // Refresh history data to pick up new watch_count
+          btn.style.opacity = '';
+          btn.style.color = 'var(--accent, #60a5fa)';
+          setTimeout(() => { btn.style.color = ''; }, 700);
           history = await getHistory();
-          renderContinueWatching();
+          renderAll(); // refresh watch_count badge in history panel
         }
       });
     });
