@@ -389,6 +389,11 @@
       const res = await fetch(`/api/tmdb?path=${encodeURIComponent(path)}`);
       const data = await res.json();
       if (data.overview) document.getElementById('splash-synopsis').textContent = data.overview;
+      // Wide art: episode still for TV episodes, backdrop for everything else
+      const isTvEp = mediaType === 'tv' && season && episode;
+      const wide = isTvEp ? data.still_path : data.backdrop_path;
+      const imgPath = wide || params.get('posterPath');
+      if (imgPath) splashBg.style.backgroundImage = `url(https://image.tmdb.org/t/p/w1280${imgPath})`;
     } catch {}
   })();
 
@@ -408,7 +413,10 @@
     splashDone = true;
     splashEl.classList.add('hidden');
     setTimeout(() => splashEl.remove(), 650);
-    video.play().catch(() => {});
+    // If stream isn't buffered yet, auto-play as soon as it's ready
+    video.play().catch(() => {
+      video.addEventListener('canplay', () => video.play().catch(() => {}), { once: true });
+    });
   }
 
   splashEl.addEventListener('click', dismissSplash);
