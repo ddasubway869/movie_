@@ -182,18 +182,10 @@ export async function startStreaming(magnet, onProgress, season, episode) {
   const cached = season == null ? getStreamCache(hash) : null;
   if (cached) {
     onProgress(90, "Getting stream URL…");
-    const cachedIsMkv = (cached.filename || '').toLowerCase().endsWith('.mkv');
-    if (!cachedIsMkv) {
-      const dlRes = await requestDownload(cached.torrentId, cached.fileId);
-      if (dlRes.success && dlRes.data) {
-        const u = dlRes.data;
-        return { url: u, filename: cached.filename, isHls: u.includes('.m3u8') || u.includes('/stream/') };
-      }
-    }
     const streamRes = await createStream(cached.torrentId, cached.fileId);
     if (streamRes.success && streamRes.data) {
       const u = streamRes.data;
-      return { url: u, filename: cached.filename, isHls: u.includes('.m3u8') || u.includes('/stream/') };
+      return { url: u, filename: cached.filename, isHls: true };
     }
     // Cache miss (torrent removed etc.) — fall through to full flow
   }
@@ -243,26 +235,15 @@ export async function startStreaming(magnet, onProgress, season, episode) {
   console.log('[SLATE] picked file:', JSON.stringify(file));
   if (!file) throw new Error("No video file found");
 
-  // MKV files often have AC3/Dolby audio Chrome can't decode (plays fast, no sound).
-  // Force HLS transcode for MKV so TorBox re-encodes audio to AAC.
-  // For MP4/WebM use requestdl (direct CDN) — faster, no proxy needed.
-  let streamUrl;
-  const isMkv = file.name.toLowerCase().endsWith('.mkv');
-  if (!isMkv) {
-    const dlRes = await requestDownload(torrentId, file.id);
-    if (dlRes.success && dlRes.data) streamUrl = dlRes.data;
-  }
-  if (!streamUrl) {
-    const hlsRes = await createStream(torrentId, file.id);
-    if (!hlsRes.success || !hlsRes.data) throw new Error(hlsRes.detail || "Failed to get stream URL");
-    streamUrl = hlsRes.data;
-  }
+  // Always use HLS transcode — TorBox re-encodes audio to AAC, fixing AC3/Dolby on Chrome.
+  const hlsRes = await createStream(torrentId, file.id);
+  if (!hlsRes.success || !hlsRes.data) throw new Error(hlsRes.detail || "Failed to get stream URL");
+  const streamUrl = hlsRes.data;
 
   // Cache for movies only — TV episodes must re-select file per episode
   if (season == null) setStreamCache(hash, { torrentId, fileId: file.id, filename: file.name });
 
-  const isHls = streamUrl.includes('.m3u8') || streamUrl.includes('/stream/');
-  return { url: streamUrl, filename: file.name, isHls };
+  return { url: streamUrl, filename: file.name, isHls: true };
 }
 
 function extractHashFromMagnet(magnet) {
