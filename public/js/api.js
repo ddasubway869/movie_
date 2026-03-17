@@ -407,6 +407,18 @@ export async function startStreamingRD(magnet, onProgress, season, episode) {
   // Clean up torrent from RD to avoid hitting list limits
   rdDelete(`/torrents/delete/${rdId}`).catch(() => {});
 
+  // Use RD transcoding → HLS with AAC audio so Chrome can decode any codec
+  if (unrestrict.id) {
+    try {
+      const transcode = await rdGet(`/streaming/transcode/${unrestrict.id}`);
+      const hlsUrl = transcode?.apple?.full;
+      if (hlsUrl) {
+        onProgress(100, "Ready");
+        return { url: hlsUrl, filename: unrestrict.filename || videoFile.name, isHls: true };
+      }
+    } catch {}
+  }
+
   onProgress(100, "Ready");
   return { url: unrestrict.download, filename: unrestrict.filename || videoFile.name };
 }
