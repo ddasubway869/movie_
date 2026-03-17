@@ -475,9 +475,14 @@ app.get("/api/hls", async (req, res) => {
         return `/api/hls?url=${encodeURIComponent(absoluteUrl(raw))}`;
       }
 
-      // Rewrite bare URL lines (segments / sub-playlists)
-      let rewritten = text.replace(/^(?!#)(?!\s*$)(.+)$/gm, (line) => proxyUrl(line));
-      // Also rewrite URI="..." attributes inside #EXT-X-* tags (audio/subtitle tracks)
+      // Sub-playlists (.m3u8) go through proxy for CORS on manifest fetches.
+      // Binary segments go direct to TorBox CDN — eliminates Railway double-hop
+      // latency. TorBox CDN has CORS headers (their own web player relies on it).
+      let rewritten = text.replace(/^(?!#)(?!\s*$)(.+)$/gm, (line) => {
+        const abs = absoluteUrl(line);
+        return abs.includes('.m3u8') ? proxyUrl(line) : abs;
+      });
+      // URI="..." attributes are always playlists — keep proxied
       rewritten = rewritten.replace(/URI="([^"]+)"/g, (_, uri) => `URI="${proxyUrl(uri)}"`);
       res.set({
         "Content-Type": "application/vnd.apple.mpegurl",
