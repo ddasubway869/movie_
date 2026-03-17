@@ -263,25 +263,10 @@
             const res = await searchTorrents(tmdbId, mediaType, season, episode);
             const torrents = res.data || [];
             if (!torrents.length) throw new Error('No sources found');
-            const best = torrents[0];
-            const magnet = best.magnet || `magnet:?xt=urn:btih:${best.hash}`;
-            const { url, filename } = await startStreaming(magnet, (pct, status) => {
-              const fill = modalEl.querySelector('.modal-progress-fill');
-              if (fill) fill.style.width = `${pct}%`;
-              const label = modalEl.querySelector('.modal-status');
-              if (label) label.textContent = status || '';
-            }, season, episode);
             modalEl.remove();
-            const params = new URLSearchParams({ url: `/api/hls?url=${encodeURIComponent(url)}`, title, filename });
-            params.set('hls', '1');
-            params.set('tmdbId', String(tmdbId));
-            params.set('mediaType', mediaType);
-            params.set('startProgress', String(startProgress));
-            if (posterPath) params.set('posterPath', posterPath);
-            if (season != null) params.set('season', String(season));
-            if (episode != null) params.set('episode', String(episode));
-            if (episodeName) params.set('episodeName', episodeName);
-            window.location.href = `/watch.html?${params}`;
+            const magnets = torrents.slice(0, 8).map(t => t.magnet || `magnet:?xt=urn:btih:${t.hash}`);
+            const episodeInfo = season != null ? { season, episode, episodeName: episodeName || '' } : null;
+            tryStreamWithFallback(magnets, title, tmdbId, mediaType, posterPath, startProgress, episodeInfo);
           } catch (err) {
             modalEl.remove();
             if (err.code === 'NO_API_KEY') {
@@ -672,31 +657,47 @@
     const res = await searchTorrents(tvId, 'tv', season, episode);
     const torrents = res.data || [];
     if (torrents.length === 0) { showModal('No sources found', `No results for ${epLabel}.`); return; }
-    const best = torrents[0];
-    handleSourceClick(best.magnet, tvName, tvId, 'tv', posterPath, 0, { season, episode, episodeName: epName });
+    const magnets = torrents.slice(0, 8).map(t => t.magnet || `magnet:?xt=urn:btih:${t.hash}`);
+    tryStreamWithFallback(magnets, tvName, tvId, 'tv', posterPath, 0, { season, episode, episodeName: epName });
   }
 
   // ── Streaming flow ─────────────────────────────────────────────────────────
+  // Manual pick (movie sources list) — try the chosen magnet, show error if stalled.
   function handleSourceClick(magnet, title, tmdbId, mediaType, posterPath, startProgress, episodeInfo = null) {
+    tryStreamWithFallback([magnet], title, tmdbId, mediaType, posterPath, startProgress, episodeInfo);
+  }
+
+  // Try magnets in order; on STALLED auto-advance to next without showing an error.
+  async function tryStreamWithFallback(magnets, title, tmdbId, mediaType, posterPath, startProgress, episodeInfo = null, attempt = 0) {
+    if (attempt >= magnets.length) {
+      showModal('No working sources', 'Every available source is stalled or failed. Try again later or pick a different source.');
+      return;
+    }
+    const magnet = magnets[attempt];
     const modalEl = showProgressModal(title);
-    startStreaming(magnet, (pct, status) => {
-      const fill = modalEl.querySelector('.modal-progress-fill');
-      const stat = modalEl.querySelector('.modal-status');
-      if (fill) fill.style.width = pct + '%';
-      if (stat) stat.textContent = status;
-    }, episodeInfo?.season, episodeInfo?.episode)
-    .then(async ({ url, filename }) => {
+    if (attempt > 0) {
+      const sub = modalEl.querySelector('.modal-subtitle');
+      if (sub) sub.textContent = `Trying source ${attempt + 1} of ${magnets.length}…`;
+    }
+    try {
+      const { url } = await startStreaming(magnet, (pct, status) => {
+        const fill = modalEl.querySelector('.modal-progress-fill');
+        const stat = modalEl.querySelector('.modal-status');
+        if (fill) fill.style.width = pct + '%';
+        if (stat) stat.textContent = status;
+      }, episodeInfo?.season, episodeInfo?.episode);
+
       // Poll until the TorBox HLS manifest is ready
       const stat = modalEl.querySelector('.modal-status');
       const fill = modalEl.querySelector('.modal-progress-fill');
-      for (let attempt = 1; attempt <= 12; attempt++) {
+      for (let p = 1; p <= 12; p++) {
         try {
-          if (stat) stat.textContent = attempt === 1 ? 'Preparing stream…' : `Preparing stream… (${attempt}/12)`;
+          if (stat) stat.textContent = p === 1 ? 'Preparing stream…' : `Preparing stream… (${p}/12)`;
           const r = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(8000) });
           if (r.ok) break;
         } catch {}
-        if (attempt === 12) break;
-        if (fill) fill.style.width = `${Math.min(95, 70 + attempt * 2)}%`;
+        if (p === 12) break;
+        if (fill) fill.style.width = `${Math.min(95, 70 + p * 2)}%`;
         await new Promise(r => setTimeout(r, 5000));
       }
       if (document.body.contains(modalEl)) document.body.removeChild(modalEl);
@@ -711,10 +712,17 @@
         if (episodeInfo.episodeName) q.set('episodeName', episodeInfo.episodeName);
       }
       window.location.href = `/watch.html?${q}`;
-    }).catch(err => {
+    } catch (err) {
       if (document.body.contains(modalEl)) document.body.removeChild(modalEl);
-      showModal('Error', err.message);
-    });
+      if (err.code === 'STALLED' && attempt + 1 < magnets.length) {
+        // Auto-retry silently with next source
+        tryStreamWithFallback(magnets, title, tmdbId, mediaType, posterPath, startProgress, episodeInfo, attempt + 1);
+      } else if (err.code === 'NO_API_KEY') {
+        showModal('API key missing', 'Please add your TorBox API key in Settings.');
+      } else {
+        showModal('Playback failed', err.message || 'Could not start stream.');
+      }
+    }
   }
 
   function showProgressModal(title) {
@@ -921,14 +929,8 @@
         <p class="panel-section-title">Account</p>
         <p style="font-size:14px;font-weight:600;margin-bottom:4px">${escHtml(me.username||'')}</p>
         <p style="font-size:12px;color:var(--text-secondary);margin-bottom:24px">${escHtml(me.email||'')}</p>
-        <p class="panel-section-title">Real-Debrid API Key</p>
-        <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">Used for streaming. Get yours at <a href="https://real-debrid.com/apitoken" target="_blank" rel="noopener" style="color:var(--accent)">real-debrid.com/apitoken</a>.</p>
-        <input class="input" id="rd-key-input" type="password" placeholder="${settings.rdMaskedKey || 'Paste your Real-Debrid API key'}" style="width:100%;margin-bottom:10px" />
-        <button class="btn btn-primary" id="save-rd-btn" style="width:100%">Save Real-Debrid Key</button>
-        <p id="rd-save-status" style="font-size:12px;margin-top:8px;min-height:16px"></p>
-
-        <p class="panel-section-title" style="margin-top:24px">TorBox API Key</p>
-        <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">Required for search. Still needed even with Real-Debrid.</p>
+        <p class="panel-section-title">TorBox API Key</p>
+        <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">Required for search and streaming.</p>
         <input class="input" id="api-key-input" type="password" placeholder="${settings.maskedKey || 'Paste your TorBox API key'}" style="width:100%;margin-bottom:10px" />
         <button class="btn btn-primary" id="save-key-btn" style="width:100%">Save TorBox Key</button>
         <p id="save-status" style="font-size:12px;margin-top:8px;min-height:16px"></p>
@@ -966,18 +968,6 @@
             </li>
           </ol>
         </div>`;
-      document.getElementById('save-rd-btn').addEventListener('click', async () => {
-        const key = document.getElementById('rd-key-input').value.trim();
-        const status = document.getElementById('rd-save-status');
-        if (!key) return;
-        try {
-          await saveRDApiKey(key);
-          useRD = true;
-          status.textContent = 'Saved! Real-Debrid is now active.'; status.style.color = '#4ade80';
-          document.getElementById('rd-key-input').value = '';
-          document.getElementById('rd-key-input').placeholder = '••••••••' + key.slice(-4);
-        } catch { status.textContent = 'Failed to save.'; status.style.color = '#ef4444'; }
-      });
       document.getElementById('save-key-btn').addEventListener('click', async () => {
         const key = document.getElementById('api-key-input').value.trim();
         const status = document.getElementById('save-status');

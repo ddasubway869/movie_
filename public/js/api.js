@@ -131,8 +131,10 @@ export async function createStream(torrentId, fileId) {
 }
 
 // Poll until torrent is ready (downloaded/cached). Calls onProgress(pct, status).
+// Throws immediately (code="STALLED") after 3 consecutive stalled polls (~9s).
 export async function waitForReady(torrentId, onProgress) {
   const maxAttempts = 120;
+  let stalledCount = 0;
   for (let i = 0; i < maxAttempts; i++) {
     await new Promise((r) => setTimeout(r, 3000));
     const data = await listTorrents();
@@ -142,11 +144,22 @@ export async function waitForReady(torrentId, onProgress) {
       onProgress(100, "Ready");
       return torrent;
     }
-    const pct = Math.round((torrent.progress || 0) * 100);
-    const speed = torrent.download_speed > 0
-      ? ` · ${Math.round(torrent.download_speed / 1024 / 1024 * 10) / 10} MB/s`
-      : "";
-    onProgress(pct, `${torrent.download_state}${speed}`);
+    if (torrent.download_state === "stalled") {
+      stalledCount++;
+      onProgress(0, stalledCount >= 2 ? "stalled — trying next source…" : "stalled (no seeds)");
+      if (stalledCount >= 3) {
+        const err = new Error("stalled");
+        err.code = "STALLED";
+        throw err;
+      }
+    } else {
+      stalledCount = 0;
+      const pct = Math.round((torrent.progress || 0) * 100);
+      const speed = torrent.download_speed > 0
+        ? ` · ${Math.round(torrent.download_speed / 1024 / 1024 * 10) / 10} MB/s`
+        : "";
+      onProgress(pct, `${torrent.download_state}${speed}`);
+    }
   }
   throw new Error("Timed out waiting for torrent");
 }
