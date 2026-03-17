@@ -127,7 +127,12 @@ export async function createStream(torrentId, fileId) {
   if (!data.success || !data.data?.hls_url) {
     return { success: false, detail: data.detail || 'Failed to get HLS stream URL' };
   }
-  return { success: true, data: data.data.hls_url };
+  // TorBox sometimes returns null for audio track index — replace with 0 to ensure audio plays
+  const hlsUrl = data.data.hls_url.replace(
+    /(\/stream\/[^/]+\/)null(\/[^/]+\/[^/]+\/playlist\.m3u8)/,
+    '$10$2'
+  );
+  return { success: true, data: hlsUrl };
 }
 
 // Poll until torrent is ready (downloaded/cached). Calls onProgress(pct, status).

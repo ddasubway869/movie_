@@ -1,13 +1,18 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy-init: don't throw at startup if key is missing
+let _resend = null;
+function getResend() {
+  if (!_resend) _resend = new Resend(process.env.RESEND_API_KEY);
+  return _resend;
+}
 const FROM = "SLATE <slate@arvl.app>";
 const APP_URL = process.env.APP_URL || "http://localhost:3000";
 
 export async function sendVerificationEmail(email, username, token) {
   const link = `${APP_URL}/api/auth/verify?token=${token}`;
 
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: "Verify your SLATE account",
