@@ -182,9 +182,15 @@ export async function startStreaming(magnet, onProgress, season, episode) {
   const cached = season == null ? getStreamCache(hash) : null;
   if (cached) {
     onProgress(90, "Getting stream URL…");
+    const dlRes = await requestDownload(cached.torrentId, cached.fileId);
+    if (dlRes.success && dlRes.data) {
+      const u = dlRes.data;
+      return { url: u, filename: cached.filename, isHls: u.includes('.m3u8') || u.includes('/stream/') };
+    }
     const streamRes = await createStream(cached.torrentId, cached.fileId);
     if (streamRes.success && streamRes.data) {
-      return { url: streamRes.data, filename: cached.filename };
+      const u = streamRes.data;
+      return { url: u, filename: cached.filename, isHls: u.includes('.m3u8') || u.includes('/stream/') };
     }
     // Cache miss (torrent removed etc.) — fall through to full flow
   }
