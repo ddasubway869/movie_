@@ -144,10 +144,14 @@ app.get("/api/user/settings", requireAuth, (req, res) => {
 app.put("/api/user/settings", requireAuth, (req, res) => {
   const { torboxApiKey, realDebridApiKey } = req.body || {};
   const db = getDb();
-  if (torboxApiKey !== undefined)
-    db.prepare("UPDATE users SET torbox_api_key = ? WHERE id = ?").run(torboxApiKey || null, req.user.userId);
-  if (realDebridApiKey !== undefined)
-    db.prepare("UPDATE users SET real_debrid_api_key = ? WHERE id = ?").run(realDebridApiKey || null, req.user.userId);
+  try {
+    if (torboxApiKey !== undefined)
+      db.prepare("UPDATE users SET torbox_api_key = ? WHERE id = ?").run(torboxApiKey || null, req.user.userId);
+    if (realDebridApiKey !== undefined)
+      db.prepare("UPDATE users SET real_debrid_api_key = ? WHERE id = ?").run(realDebridApiKey || null, req.user.userId);
+  } catch (e) {
+    return res.status(500).json({ error: e.message });
+  }
   res.json({ ok: true });
 });
 
