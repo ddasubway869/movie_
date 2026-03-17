@@ -459,13 +459,17 @@ app.get("/api/hls", async (req, res) => {
 
     if (contentType.includes("mpegurl") || url.includes(".m3u8") || url.includes("/hls")) {
       const text = await upstream.text();
-      const baseUrl = url.substring(0, url.lastIndexOf("/") + 1);
-      const origin = new URL(url).origin;
+      const urlObj = new URL(url);
+      const basePath = url.split('?')[0];
+      const baseUrl = basePath.substring(0, basePath.lastIndexOf("/") + 1);
+      const queryStr = urlObj.search; // preserve ?token=...&scrobbling_enabled=True
       function absoluteUrl(raw) {
         const trimmed = raw.trim();
         if (trimmed.startsWith("http")) return trimmed;
-        if (trimmed.startsWith("/")) return origin + trimmed;
-        return baseUrl + trimmed;
+        if (trimmed.startsWith("/")) return urlObj.origin + trimmed + (queryStr && !trimmed.includes('?') ? queryStr : '');
+        // Relative path: append token query params so CDN auth works for segments
+        const abs = baseUrl + trimmed;
+        return (queryStr && !trimmed.includes('?')) ? abs + queryStr : abs;
       }
       function proxyUrl(raw) {
         return `/api/hls?url=${encodeURIComponent(absoluteUrl(raw))}`;
