@@ -136,7 +136,7 @@ export async function waitForReady(torrentId, onProgress) {
   const maxAttempts = 120;
   let stalledCount = 0;
   for (let i = 0; i < maxAttempts; i++) {
-    await new Promise((r) => setTimeout(r, 3000));
+    await new Promise((r) => setTimeout(r, i < 5 ? 1500 : 3000));
     const data = await listTorrents();
     const torrent = (data.data || []).find((t) => t.id === torrentId);
     if (!torrent) continue;
@@ -190,21 +190,34 @@ export async function startStreaming(magnet, onProgress, season, episode) {
   }
 
   // Full flow for first-time plays
-  onProgress(0, "Adding torrent…");
-  const createRes = await createTorrent(magnet);
-  if (!createRes.success && !createRes.detail?.includes("already")) {
-    throw new Error(createRes.detail || "Failed to create torrent");
+  // Pre-check: if TorBox already has this torrent cached, skip createTorrent wait
+  onProgress(0, "Checking cache…");
+  const preList = await listTorrents();
+  let existingTorrent = (preList.data || []).find((t) => t.hash?.toLowerCase() === hash);
+  let torrentId;
+  let torrent;
+
+  if (existingTorrent && (existingTorrent.download_state === "cached" || existingTorrent.download_state === "completed")) {
+    torrentId = existingTorrent.id;
+    torrent = existingTorrent;
+    onProgress(100, "Ready");
+  } else {
+    onProgress(5, "Adding torrent…");
+    const createRes = await createTorrent(magnet);
+    if (!createRes.success && !createRes.detail?.includes("already")) {
+      throw new Error(createRes.detail || "Failed to create torrent");
+    }
+
+    torrentId = createRes.data?.torrent_id;
+
+    onProgress(10, "Checking cache…");
+    const list = await listTorrents();
+    torrent = (list.data || []).find((t) =>
+      torrentId ? t.id === torrentId : t.hash?.toLowerCase() === hash
+    );
+    if (!torrent) throw new Error("Torrent not found after adding");
+    torrentId = torrent.id;
   }
-
-  let torrentId = createRes.data?.torrent_id;
-
-  onProgress(10, "Checking cache…");
-  const list = await listTorrents();
-  let torrent = (list.data || []).find((t) =>
-    torrentId ? t.id === torrentId : t.hash?.toLowerCase() === hash
-  );
-  if (!torrent) throw new Error("Torrent not found after adding");
-  torrentId = torrent.id;
 
   const isReady = torrent.download_state === "cached" || torrent.download_state === "completed";
   if (isReady) {

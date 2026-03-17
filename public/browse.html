@@ -264,7 +264,8 @@
             const torrents = res.data || [];
             if (!torrents.length) throw new Error('No sources found');
             modalEl.remove();
-            const magnets = torrents.slice(0, 8).map(t => t.magnet || `magnet:?xt=urn:btih:${t.hash}`);
+            const sorted = [...torrents].sort((a, b) => (b.cached ? 1 : 0) - (a.cached ? 1 : 0));
+            const magnets = sorted.slice(0, 8).map(t => t.magnet || `magnet:?xt=urn:btih:${t.hash}`);
             const episodeInfo = season != null ? { season, episode, episodeName: episodeName || '' } : null;
             tryStreamWithFallback(magnets, title, tmdbId, mediaType, posterPath, startProgress, episodeInfo);
           } catch (err) {
@@ -657,7 +658,8 @@
     const res = await searchTorrents(tvId, 'tv', season, episode);
     const torrents = res.data || [];
     if (torrents.length === 0) { showModal('No sources found', `No results for ${epLabel}.`); return; }
-    const magnets = torrents.slice(0, 8).map(t => t.magnet || `magnet:?xt=urn:btih:${t.hash}`);
+    const sorted = [...torrents].sort((a, b) => (b.cached ? 1 : 0) - (a.cached ? 1 : 0));
+    const magnets = sorted.slice(0, 8).map(t => t.magnet || `magnet:?xt=urn:btih:${t.hash}`);
     tryStreamWithFallback(magnets, tvName, tvId, 'tv', posterPath, 0, { season, episode, episodeName: epName });
   }
 
