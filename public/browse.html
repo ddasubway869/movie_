@@ -187,7 +187,7 @@
         const poster = item.posterPath ? posterURL(item.posterPath, 'w300') : null;
         const pct = Math.round((item.progress || 0) * 100);
         const done = pct >= 90;
-        return `<div class="cw-item" data-id="${item.id}" data-type="${item.type}" data-progress="${item.progress || 0}" data-title="${escAttr(item.title)}" data-poster="${escAttr(item.posterPath || '')}">
+        return `<div class="cw-item" data-id="${item.id}" data-type="${item.type}" data-progress="${item.progress || 0}" data-title="${escAttr(item.title)}" data-poster="${escAttr(item.posterPath || '')}" data-season="${item.season ?? ''}" data-episode="${item.episode ?? ''}" data-episode-name="${escAttr(item.episodeName || '')}">
           <div class="cw-poster">
             ${poster ? `<img src="${poster}" alt="${escHtml(item.title)}" loading="lazy" />` : ''}
             ${done ? `<div class="watched-badge">✓</div>` : ''}
@@ -259,30 +259,38 @@
           const title = item.dataset.title;
           const posterPath = item.dataset.poster || null;
           const startProgress = parseFloat(item.dataset.progress || '0');
+          const season = item.dataset.season ? Number(item.dataset.season) : null;
+          const episode = item.dataset.episode ? Number(item.dataset.episode) : null;
+          const episodeName = item.dataset.episodeName || null;
           const modalEl = showProgressModal(title);
           try {
-            const res = await searchTorrents(tmdbId, mediaType);
+            const res = await searchTorrents(tmdbId, mediaType, season, episode);
             const torrents = res.data || [];
             if (!torrents.length) throw new Error('No sources found');
             const best = torrents[0];
             const magnet = best.magnet || `magnet:?xt=urn:btih:${best.hash}`;
-            const { url, filename } = await startStreaming(magnet, (pct, status) => {
+            const streamFn = useRD ? startStreamingRD : startStreaming;
+            const { url, filename } = await streamFn(magnet, (pct, status) => {
               const fill = modalEl.querySelector('.modal-progress-fill');
               if (fill) fill.style.width = `${pct}%`;
               const label = modalEl.querySelector('.modal-status');
               if (label) label.textContent = status || '';
-            });
+            }, season, episode);
             modalEl.remove();
             const params = new URLSearchParams({ url, title, filename });
+            if (!useRD) params.set('hls', '1');
             params.set('tmdbId', String(tmdbId));
             params.set('mediaType', mediaType);
             params.set('startProgress', String(startProgress));
             if (posterPath) params.set('posterPath', posterPath);
+            if (season != null) params.set('season', String(season));
+            if (episode != null) params.set('episode', String(episode));
+            if (episodeName) params.set('episodeName', episodeName);
             window.location.href = `/watch.html?${params}`;
           } catch (err) {
             modalEl.remove();
             if (err.code === 'NO_API_KEY') {
-              showModal('TorBox API key missing', 'Please add your TorBox API key in Settings before playing.');
+              showModal('API key missing', 'Please add your API key in Settings before playing.');
             } else {
               showModal('Playback failed', err.message || 'Could not start stream.');
             }

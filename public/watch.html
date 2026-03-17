@@ -393,7 +393,9 @@
     try {
       let path = mediaType === 'tv' && season && episode
         ? `/3/tv/${tmdbId}/season/${season}/episode/${episode}`
-        : `/3/movie/${tmdbId}`;
+        : mediaType === 'tv'
+          ? `/3/tv/${tmdbId}`
+          : `/3/movie/${tmdbId}`;
       const res = await fetch(`/api/tmdb?path=${encodeURIComponent(path)}`);
       const data = await res.json();
       if (data.overview) document.getElementById('splash-synopsis').textContent = data.overview;
