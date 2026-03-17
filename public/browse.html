@@ -123,7 +123,7 @@
 </div>
 
 <script type="module">
-  import { requireLogin, logout, getMe, getTrending, searchMulti, getMovieDetails, getTVDetails, getHistory, removeFromHistory, addToHistory, updateProgress, addToWatchlist, removeFromWatchlist, getWatchlist, searchTorrents, startStreaming, startStreamingRD, getSeasonDetails, getSettings, saveApiKey } from '/js/api.js';
+  import { requireLogin, logout, getMe, getTrending, searchMulti, getMovieDetails, getTVDetails, getHistory, removeFromHistory, addToHistory, updateProgress, addToWatchlist, removeFromWatchlist, getWatchlist, searchTorrents, startStreaming, startStreamingRD, getSeasonDetails, getSettings, saveApiKey, saveRDApiKey } from '/js/api.js';
   import { initTheme, toggleTheme, posterURL, getYear, ratingToPercent, formatBytes, debounce } from '/js/utils.js';
   initTheme();
 
@@ -921,10 +921,16 @@
         <p class="panel-section-title">Account</p>
         <p style="font-size:14px;font-weight:600;margin-bottom:4px">${escHtml(me.username||'')}</p>
         <p style="font-size:12px;color:var(--text-secondary);margin-bottom:24px">${escHtml(me.email||'')}</p>
-        <p class="panel-section-title">TorBox API Key</p>
-        <input class="input" id="api-key-input" type="password" placeholder="Paste your TorBox API key" style="width:100%;margin-bottom:10px" />
-        ${settings.maskedKey ? `<p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">Current: ${escHtml(settings.maskedKey)}</p>` : ''}
-        <button class="btn btn-primary" id="save-key-btn" style="width:100%">Save</button>
+        <p class="panel-section-title">Real-Debrid API Key</p>
+        <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">Used for streaming. Get yours at <a href="https://real-debrid.com/apitoken" target="_blank" rel="noopener" style="color:var(--accent)">real-debrid.com/apitoken</a>.</p>
+        <input class="input" id="rd-key-input" type="password" placeholder="${settings.rdMaskedKey || 'Paste your Real-Debrid API key'}" style="width:100%;margin-bottom:10px" />
+        <button class="btn btn-primary" id="save-rd-btn" style="width:100%">Save Real-Debrid Key</button>
+        <p id="rd-save-status" style="font-size:12px;margin-top:8px;min-height:16px"></p>
+
+        <p class="panel-section-title" style="margin-top:24px">TorBox API Key</p>
+        <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">Required for search. Still needed even with Real-Debrid.</p>
+        <input class="input" id="api-key-input" type="password" placeholder="${settings.maskedKey || 'Paste your TorBox API key'}" style="width:100%;margin-bottom:10px" />
+        <button class="btn btn-primary" id="save-key-btn" style="width:100%">Save TorBox Key</button>
         <p id="save-status" style="font-size:12px;margin-top:8px;min-height:16px"></p>
 
         <div class="settings-guide">
@@ -960,6 +966,18 @@
             </li>
           </ol>
         </div>`;
+      document.getElementById('save-rd-btn').addEventListener('click', async () => {
+        const key = document.getElementById('rd-key-input').value.trim();
+        const status = document.getElementById('rd-save-status');
+        if (!key) return;
+        try {
+          await saveRDApiKey(key);
+          useRD = true;
+          status.textContent = 'Saved! Real-Debrid is now active.'; status.style.color = '#4ade80';
+          document.getElementById('rd-key-input').value = '';
+          document.getElementById('rd-key-input').placeholder = '••••••••' + key.slice(-4);
+        } catch { status.textContent = 'Failed to save.'; status.style.color = '#ef4444'; }
+      });
       document.getElementById('save-key-btn').addEventListener('click', async () => {
         const key = document.getElementById('api-key-input').value.trim();
         const status = document.getElementById('save-status');
