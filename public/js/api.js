@@ -216,7 +216,9 @@ export async function startStreaming(magnet, onProgress, season, episode) {
   }
 
   onProgress(100, "Getting stream URL…");
+  console.log('[SLATE] torrent.files:', JSON.stringify(torrent.files?.slice(0, 10)));
   const file = pickVideoFile(torrent.files, season, episode);
+  console.log('[SLATE] picked file:', JSON.stringify(file));
   if (!file) throw new Error("No video file found");
 
   const streamRes = await createStream(torrentId, file.id);
