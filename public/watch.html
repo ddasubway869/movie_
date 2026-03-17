@@ -421,14 +421,18 @@
     splashDone = true;
     splashEl.classList.add('hidden');
     setTimeout(() => splashEl.remove(), 650);
-    // Show loading overlay until stream has data
     const streamLoading = document.getElementById('stream-loading');
-    streamLoading.style.display = 'flex';
-    video.addEventListener('canplay', () => {
-      streamLoading.style.display = 'none';
+    // If video already has enough data (canplay fired before splash dismissed), play immediately
+    if (video.readyState >= 3) {
       video.play().catch(() => {});
-    }, { once: true });
-    video.play().catch(() => {});
+    } else {
+      streamLoading.style.display = 'flex';
+      video.addEventListener('canplay', () => {
+        streamLoading.style.display = 'none';
+        video.play().catch(() => {});
+      }, { once: true });
+      video.play().catch(() => {});
+    }
   }
 
   splashEl.addEventListener('click', dismissSplash);
