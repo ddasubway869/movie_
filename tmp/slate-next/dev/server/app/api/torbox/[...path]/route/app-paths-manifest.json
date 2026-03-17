@@ -1,0 +1,3 @@
+{
+  "/api/torbox/[...path]/route": "app/api/torbox/[...path]/route.js"
+}

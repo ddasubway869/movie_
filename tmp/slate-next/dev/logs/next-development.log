@@ -1,0 +1,3105 @@
+[00:00:00.470] Server  LOG     
+[00:00:00.470] Server  LOG       We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+[00:00:00.470] Server  LOG       The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+[00:00:00.470] Server  LOG       	- include was updated to add '/tmp/slate-next/types/**/*.ts'
+[00:00:00.470] Server  LOG       	- include was updated to add '/tmp/slate-next/dev/types/**/*.ts'
+[00:00:00.470] Server  LOG     
+[00:00:00.532] Server  LOG     ✓ Ready in 359ms
+[00:00:02.355] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:02.806] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:50.070] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:51.056] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:03:57.077] Server  LOG     ✓ Compiled in 376ms
+[00:05:49.241] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:50.168] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:07:14.362] Server  LOG     ✓ Compiled in 64ms
+[00:07:55.091] Server  LOG     ✓ Compiled in 56ms
+[00:08:32.757] Server  LOG     ✓ Compiled in 45ms
+[00:10:03.021] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:04.004] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:10:29.716] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:30.288] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:11:30.215] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:31.040] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:13:15.227] Server  LOG     ✓ Compiled in 59ms
+[00:13:28.411] Server  LOG     ✓ Compiled in 33ms
+[00:14:36.014] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:36.905] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:15:16.172] Server  LOG     ✓ Compiled in 40ms
+[00:15:19.220] Server  LOG     ✓ Compiled in 51ms
+[00:15:28.944] Server  LOG     ✓ Compiled in 30ms
+[00:15:35.158] Server  LOG     ✓ Compiled in 34ms
+[00:15:38.278] Server  LOG     ✓ Compiled in 34ms
+[00:15:41.249] Server  LOG     ✓ Compiled in 40ms
+[00:19:21.268] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:22.139] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/cWsBscZzwu5brg9YjNkGewRUvJX.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:20:43.711] Server  LOG     ✓ Compiled in 115ms
+[00:20:47.875] Server  LOG     ✓ Compiled in 33ms
+[00:21:05.719] Server  LOG     ✓ Compiled in 31ms
+[00:21:08.357] Server  LOG     ✓ Compiled in 35ms
+[00:23:22.548] Server  LOG     ✓ Compiled in 44ms
+[00:25:39.464] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:40.404] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:27:35.826] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:36.618] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:28:34.126] Server  LOG     ✓ Compiled in 57ms
+[00:28:38.115] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./src/lib/torbox.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:28:38.116] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./src/lib/torbox.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:28:38.206] Server  LOG     ✓ Compiled in 40ms
+[00:28:38.359] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:38.392] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:39.419] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:28:39.434] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:29:53.144] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:53.934] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:30:41.881] Server  LOG     ✓ Compiled in 36ms
+[00:30:53.403] Server  LOG     ✓ Compiled in 40ms
+[00:30:53.528] Browser ERROR   ./src/components/ContinueWatching.tsx:165:13
+Parsing ecmascript source code failed
+  163 |               </button>
+  164 |             );
+> 165 |           })}
+      |             ^
+  166 |         </div>
+  167 |       </div>
+  168 |     </section>
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ContinueWatching.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ContinueWatching.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[00:30:53.528] Browser ERROR   ./src/components/ContinueWatching.tsx:167:8
+Parsing ecmascript source code failed
+  165 |           })}
+  166 |         </div>
+> 167 |       </div>
+      |        ^^^^^
+  168 |     </section>
+  169 |   );
+  170 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ContinueWatching.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ContinueWatching.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[00:30:53.528] Browser ERROR   ./src/components/ContinueWatching.tsx:165:13
+Parsing ecmascript source code failed
+  163 |               </button>
+  164 |             );
+> 165 |           })}
+      |             ^
+  166 |         </div>
+  167 |       </div>
+  168 |     </section>
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ContinueWatching.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ContinueWatching.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[00:30:53.528] Browser ERROR   ./src/components/ContinueWatching.tsx:167:8
+Parsing ecmascript source code failed
+  165 |           })}
+  166 |         </div>
+> 167 |       </div>
+      |        ^^^^^
+  168 |     </section>
+  169 |   );
+  170 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ContinueWatching.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ContinueWatching.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[00:32:12.515] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:32:13.353] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:33:00.001] Server  LOG     ✓ Compiled in 52ms
+[00:39:00.525] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:01.244] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:40:22.748] Server  LOG     ✓ Compiled in 72ms
+[01:08:54.831] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:08:56.007] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:09:18.725] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:09:19.757] Browser WARN    Image with src "https://image.tmdb.org/t/p/w300/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:13:01.786] Server  LOG     ✓ Compiled in 450ms
+[01:13:32.873] Server  LOG     ✓ Compiled in 82ms
+[01:14:02.831] Server  LOG     ✓ Compiled in 0ms
+[01:14:07.431] Server  LOG     ✓ Compiled in 176ms
+[01:17:02.454] Server  LOG     ✓ Compiled in 80ms
+[01:17:02.557] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:02.557] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:02.558] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:02.558] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:02.563] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:02.563] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:02.563] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:02.563] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/AuthGuard.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/AuthGuard.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/AuthGuard.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/AuthGuard.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/AuthGuard.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/AuthGuard.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/AuthGuard.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/AuthGuard.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.116] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.735] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.735] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.737] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:51.737] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:52.564] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:52.564] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:52.564] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[01:17:52.564] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[01:17:52.564] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/AuthGuard.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/AuthGuard.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Server Component]
+[01:17:52.564] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/AuthGuard.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/AuthGuard.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Server Component]
+[01:17:52.564] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+[01:17:52.564] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+[01:17:52.564] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:52.564] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:52.565] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:52.565] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:52.565] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[01:17:52.565] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[01:17:52.565] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/AuthGuard.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/AuthGuard.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Server Component]
+[01:17:52.565] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/AuthGuard.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/AuthGuard.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Server Component]
+[01:17:52.565] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+[01:17:52.565] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+[01:17:52.565] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:17:52.565] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:22.840] Server  ERROR   ⨯ ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+
+
+
+./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+
+
+[01:18:22.966] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:22.966] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:22.966] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:22.966] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.339] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.339] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.339] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.339] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.421] Browser ERROR   uncaughtError: Error: ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+
+[01:18:23.572] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.572] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.572] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[01:18:23.572] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Client Component Browser]
+    ./src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Client Component SSR]
+    ./src/app/browse/page.tsx [Server Component]
+[01:18:23.572] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/AuthGuard.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/AuthGuard.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Server Component]
+[01:18:23.572] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/AuthGuard.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Client Component Browser]
+    ./src/app/watch/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/AuthGuard.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Client Component SSR]
+    ./src/app/watch/page.tsx [Server Component]
+[01:18:23.572] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+[01:18:23.572] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/components/Header.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Client Component Browser]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/components/Header.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Client Component SSR]
+    ./src/app/movie/[id]/page.tsx [Server Component]
+[01:18:23.572] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.572] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.952] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.952] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.952] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.952] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.952] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.952] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.952] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:23.952] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-client] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:18:24.121] Browser ERROR   ./src/components/AuthProvider.tsx:5:1
+Export validateApiKey doesn't exist in target module
+  3 | import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+  4 | import { AUTH_KEY } from "@/lib/constants";
+> 5 | import { validateApiKey } from "@/lib/torbox";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { TorboxUser } from "@/types/torbox";
+  7 |
+  8 | interface AuthContextType {
+
+The export validateApiKey was not found in module [project]/src/lib/torbox.ts [app-ssr] (ecmascript).
+Did you mean to import waitForReady?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Server Component:
+    ./src/components/AuthProvider.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/components/AuthProvider.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AuthProvider.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[01:20:28.365] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./src/components/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:20:28.365] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./src/components/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:20:28.365] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:20:28.365] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./src/components/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:20:28.371] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./src/components/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:20:28.371] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:20:28.371] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./src/components/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:20:28.371] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./src/components/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:20:28.426] Server  LOG     ✓ Compiled in 0ms
+[01:20:28.701] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:20:28.785] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:20:28.898] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:20:28.980] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:20:38.896] Server  LOG     ✓ Compiled in 330ms
+[01:21:57.980] Server  LOG     ✓ Compiled in 60ms
+[01:23:43.747] Server  LOG     ✓ Compiled in 162ms
+[01:24:00.632] Server  LOG     ✓ Compiled in 278ms
+[01:24:06.137] Server  LOG     ✓ Compiled in 102ms
+[01:24:46.809] Server  LOG     ✓ Compiled in 44ms
+[01:24:51.030] Server  LOG     ✓ Compiled in 50ms
+[01:25:21.342] Server  LOG     ✓ Compiled in 46ms
+[01:25:31.149] Server  LOG     ✓ Compiled in 61ms
+[01:25:39.244] Server  LOG     ✓ Compiled in 53ms
+[01:25:54.798] Server  LOG     ✓ Compiled in 51ms
+[01:26:21.101] Server  LOG     ✓ Compiled in 43ms
+[01:26:59.922] Server  LOG     ✓ Compiled in 66ms
+[01:27:29.080] Server  LOG     ✓ Compiled in 90ms
+[01:28:29.111] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:28:44.714] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:29:01.873] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
