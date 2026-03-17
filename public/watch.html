@@ -104,6 +104,12 @@
 <div class="watch-video-wrap" style="position:relative">
   <video class="watch-video" id="player" controls playsinline></video>
 
+  <!-- Stream loading overlay (shown after splash, hidden when canplay fires) -->
+  <div id="stream-loading" style="display:none;position:absolute;inset:0;background:#000;z-index:10;align-items:center;justify-content:center;flex-direction:column;gap:16px">
+    <div class="spinner" style="width:36px;height:36px;border-width:3px"></div>
+    <p id="stream-loading-msg" style="color:rgba(255,255,255,0.45);font-size:14px;margin:0">Connecting to stream…</p>
+  </div>
+
   <!-- Audio track selector -->
   <div class="audio-wrap" id="audio-wrap" style="display:none">
     <button class="audio-btn" id="audio-btn">
@@ -327,6 +333,8 @@
               manifestRetries++;
               recovering = true;
               console.log(`[SLATE] manifest not ready, retry ${manifestRetries}/${MAX_MANIFEST_RETRIES}`);
+              const msg = document.getElementById('stream-loading-msg');
+              if (msg) msg.textContent = `Stream loading on TorBox… (${manifestRetries}/${MAX_MANIFEST_RETRIES})`;
               setTimeout(() => { hlsInstance.destroy(); recovering = false; loadVideo(url); }, 5000);
               return;
             }
@@ -413,10 +421,14 @@
     splashDone = true;
     splashEl.classList.add('hidden');
     setTimeout(() => splashEl.remove(), 650);
-    // If stream isn't buffered yet, auto-play as soon as it's ready
-    video.play().catch(() => {
-      video.addEventListener('canplay', () => video.play().catch(() => {}), { once: true });
-    });
+    // Show loading overlay until stream has data
+    const streamLoading = document.getElementById('stream-loading');
+    streamLoading.style.display = 'flex';
+    video.addEventListener('canplay', () => {
+      streamLoading.style.display = 'none';
+      video.play().catch(() => {});
+    }, { once: true });
+    video.play().catch(() => {});
   }
 
   splashEl.addEventListener('click', dismissSplash);
