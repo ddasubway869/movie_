@@ -123,7 +123,7 @@
 </div>
 
 <script type="module">
-  import { requireLogin, logout, getMe, getTrending, searchMulti, getMovieDetails, getTVDetails, getHistory, removeFromHistory, addToHistory, updateProgress, addToWatchlist, removeFromWatchlist, getWatchlist, searchTorrents, startStreaming, startStreamingRD, getSeasonDetails, getSettings, saveApiKey, saveRDApiKey } from '/js/api.js';
+  import { requireLogin, logout, getMe, getTrending, searchMulti, getMovieDetails, getTVDetails, getHistory, removeFromHistory, addToHistory, updateProgress, addToWatchlist, removeFromWatchlist, getWatchlist, searchTorrents, startStreaming, getSeasonDetails, saveApiKey } from '/js/api.js';
   import { initTheme, toggleTheme, posterURL, getYear, ratingToPercent, formatBytes, debounce } from '/js/utils.js';
   initTheme();
 
@@ -141,10 +141,6 @@
   }
 
   await requireLogin();
-
-  // Check which streaming backend is available
-  const userSettings = await getSettings();
-  const useRD = userSettings.hasRDKey;
 
   document.getElementById('theme-btn').addEventListener('click', toggleTheme);
   document.getElementById('logout-btn').addEventListener('click', async () => {
@@ -269,17 +265,15 @@
             if (!torrents.length) throw new Error('No sources found');
             const best = torrents[0];
             const magnet = best.magnet || `magnet:?xt=urn:btih:${best.hash}`;
-            const streamFn = useRD ? startStreamingRD : startStreaming;
-            const { url, filename, isHls } = await streamFn(magnet, (pct, status) => {
+            const { url, filename } = await startStreaming(magnet, (pct, status) => {
               const fill = modalEl.querySelector('.modal-progress-fill');
               if (fill) fill.style.width = `${pct}%`;
               const label = modalEl.querySelector('.modal-status');
               if (label) label.textContent = status || '';
             }, season, episode);
             modalEl.remove();
-            const finalUrl = isHls ? `/api/hls?url=${encodeURIComponent(url)}` : url;
-            const params = new URLSearchParams({ url: finalUrl, title, filename });
-            if (!useRD || isHls) params.set('hls', '1');
+            const params = new URLSearchParams({ url: `/api/hls?url=${encodeURIComponent(url)}`, title, filename });
+            params.set('hls', '1');
             params.set('tmdbId', String(tmdbId));
             params.set('mediaType', mediaType);
             params.set('startProgress', String(startProgress));
@@ -685,34 +679,29 @@
   // ── Streaming flow ─────────────────────────────────────────────────────────
   function handleSourceClick(magnet, title, tmdbId, mediaType, posterPath, startProgress, episodeInfo = null) {
     const modalEl = showProgressModal(title);
-    const streamFn = useRD ? startStreamingRD : startStreaming;
-    streamFn(magnet, (pct, status) => {
+    startStreaming(magnet, (pct, status) => {
       const fill = modalEl.querySelector('.modal-progress-fill');
       const stat = modalEl.querySelector('.modal-status');
       if (fill) fill.style.width = pct + '%';
       if (stat) stat.textContent = status;
     }, episodeInfo?.season, episodeInfo?.episode)
-    .then(async ({ url, filename, isHls }) => {
-      // For TorBox HLS only: poll until the stream manifest is ready
-      if (!useRD) {
-        const stat = modalEl.querySelector('.modal-status');
-        const fill = modalEl.querySelector('.modal-progress-fill');
-        for (let attempt = 1; attempt <= 12; attempt++) {
-          try {
-            if (stat) stat.textContent = attempt === 1 ? 'Preparing stream…' : `Preparing stream… (${attempt}/12)`;
-            const r = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(8000) });
-            if (r.ok) break;
-          } catch {}
-          if (attempt === 12) break;
-          if (fill) fill.style.width = `${Math.min(95, 70 + attempt * 2)}%`;
-          await new Promise(r => setTimeout(r, 5000));
-        }
+    .then(async ({ url, filename }) => {
+      // Poll until the TorBox HLS manifest is ready
+      const stat = modalEl.querySelector('.modal-status');
+      const fill = modalEl.querySelector('.modal-progress-fill');
+      for (let attempt = 1; attempt <= 12; attempt++) {
+        try {
+          if (stat) stat.textContent = attempt === 1 ? 'Preparing stream…' : `Preparing stream… (${attempt}/12)`;
+          const r = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(8000) });
+          if (r.ok) break;
+        } catch {}
+        if (attempt === 12) break;
+        if (fill) fill.style.width = `${Math.min(95, 70 + attempt * 2)}%`;
+        await new Promise(r => setTimeout(r, 5000));
       }
       if (document.body.contains(modalEl)) document.body.removeChild(modalEl);
-      // Proxy HLS through server to avoid CORS on segment fetches (both TorBox and RD)
-      const finalUrl = isHls ? `/api/hls?url=${encodeURIComponent(url)}` : url;
-      const q = new URLSearchParams({ url: finalUrl, title, mediaType });
-      if (!useRD || isHls) q.set('hls', '1');
+      const q = new URLSearchParams({ url: `/api/hls?url=${encodeURIComponent(url)}`, title, mediaType });
+      q.set('hls', '1');
       if (tmdbId) q.set('tmdbId', String(tmdbId));
       if (posterPath) q.set('posterPath', posterPath);
       if (startProgress > 0.01) q.set('startProgress', String(startProgress));

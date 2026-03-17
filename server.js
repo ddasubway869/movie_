@@ -132,58 +132,23 @@ app.get("/api/auth/me", async (req, res) => {
 // ─── Settings ─────────────────────────────────────────────────────────────────
 app.get("/api/user/settings", requireAuth, (req, res) => {
   const db = getDb();
-  const user = db.prepare("SELECT torbox_api_key, real_debrid_api_key FROM users WHERE id = ?").get(req.user.userId);
+  const user = db.prepare("SELECT torbox_api_key FROM users WHERE id = ?").get(req.user.userId);
   res.json({
     hasApiKey: !!(user?.torbox_api_key),
     maskedKey: user?.torbox_api_key ? "••••••••" + user.torbox_api_key.slice(-4) : null,
-    hasRDKey: !!(user?.real_debrid_api_key),
-    rdMaskedKey: user?.real_debrid_api_key ? "••••••••" + user.real_debrid_api_key.slice(-4) : null,
   });
 });
 
 app.put("/api/user/settings", requireAuth, (req, res) => {
-  const { torboxApiKey, realDebridApiKey } = req.body || {};
+  const { torboxApiKey } = req.body || {};
   const db = getDb();
   try {
     if (torboxApiKey !== undefined)
       db.prepare("UPDATE users SET torbox_api_key = ? WHERE id = ?").run(torboxApiKey || null, req.user.userId);
-    if (realDebridApiKey !== undefined)
-      db.prepare("UPDATE users SET real_debrid_api_key = ? WHERE id = ?").run(realDebridApiKey || null, req.user.userId);
   } catch (e) {
     return res.status(500).json({ error: e.message });
   }
   res.json({ ok: true });
-});
-
-// ─── Real-Debrid Proxy ────────────────────────────────────────────────────────
-app.all("/api/rd/*", requireAuth, async (req, res) => {
-  const db = getDb();
-  const user = db.prepare("SELECT real_debrid_api_key FROM users WHERE id = ?").get(req.user.userId);
-  const rdKey = user?.real_debrid_api_key;
-  if (!rdKey) return res.status(401).json({ error: "No Real-Debrid API key configured" });
-
-  const rdPath = req.path.replace("/api/rd", "");
-  const qs = req.url.includes("?") ? req.url.slice(req.url.indexOf("?")) : "";
-  const rdUrl = `https://api.real-debrid.com/rest/1.0${rdPath}${qs}`;
-
-  const fetchOptions = { method: req.method, headers: { Authorization: `Bearer ${rdKey}` } };
-  if (req.method === "POST" || req.method === "PUT") {
-    const body = new URLSearchParams(req.body || {}).toString();
-    if (body) {
-      fetchOptions.headers["Content-Type"] = "application/x-www-form-urlencoded";
-      fetchOptions.body = body;
-    }
-  }
-
-  try {
-    const upstream = await fetch(rdUrl, fetchOptions);
-    if (upstream.status === 204) return res.status(204).end();
-    const text = await upstream.text();
-    try { res.status(upstream.status).json(JSON.parse(text)); }
-    catch { res.status(upstream.status).send(text); }
-  } catch (e) {
-    res.status(502).json({ error: e.message });
-  }
 });
 
 // ─── Watchlist ────────────────────────────────────────────────────────────────

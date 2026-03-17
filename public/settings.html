@@ -70,25 +70,6 @@
     </p>
   </div>
 
-  <!-- Real-Debrid API Key -->
-  <div class="settings-card">
-    <h2 class="settings-card-title">Real-Debrid API Key</h2>
-    <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px;">
-      Real-Debrid gives you instant, reliable direct links — faster and more stable than HLS streaming. When set, SLATE uses Real-Debrid for playback instead of TorBox. Get your key at <a href="https://real-debrid.com/apitoken" target="_blank" rel="noopener">real-debrid.com/apitoken</a>.
-    </p>
-    <form id="rd-apikey-form" class="auth-form" style="max-width:100%;margin-top:4px">
-      <div class="form-group">
-        <label class="form-label" for="rd-api-key">API Key</label>
-        <input class="input" id="rd-api-key" type="password" placeholder="Enter your Real-Debrid API key" autocomplete="off" />
-      </div>
-      <div style="display:flex;gap:10px;align-items:center">
-        <button class="btn btn-primary" type="submit" id="rd-save-btn">Save</button>
-        <button class="btn btn-ghost" type="button" id="rd-clear-btn">Clear</button>
-        <span class="settings-success" id="rd-save-status" style="display:none">Saved!</span>
-      </div>
-    </form>
-  </div>
-
   <!-- TorBox API Key -->
   <div class="settings-card">
     <h2 class="settings-card-title">TorBox API Key</h2>
@@ -140,7 +121,7 @@
 </main>
 
 <script type="module">
-  import { requireLogin, logout, getSettings, saveApiKey, saveRDApiKey } from '/js/api.js';
+  import { requireLogin, logout, getSettings, saveApiKey } from '/js/api.js';
   import { initTheme, toggleTheme } from '/js/utils.js';
   initTheme();
 
@@ -154,10 +135,6 @@
   if (settings.maskedKey) {
     document.getElementById('api-key').placeholder = settings.maskedKey;
   }
-  if (settings.rdMaskedKey) {
-    document.getElementById('rd-api-key').placeholder = settings.rdMaskedKey;
-  }
-
   // Audio track preference (localStorage only)
   const audioSelect = document.getElementById('audio-idx-select');
   audioSelect.value = localStorage.getItem('slate_audio_idx') ?? '-1';
@@ -203,33 +180,7 @@
     document.getElementById('api-key').placeholder = 'Enter your TorBox API key';
   });
 
-  // Real-Debrid key
-  const rdForm = document.getElementById('rd-apikey-form');
-  const rdSaveBtn = document.getElementById('rd-save-btn');
-  const rdSaveStatus = document.getElementById('rd-save-status');
 
-  rdForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const key = document.getElementById('rd-api-key').value.trim();
-    if (!key) return;
-    rdSaveBtn.disabled = true;
-    rdSaveBtn.textContent = 'Saving…';
-    try {
-      await saveRDApiKey(key);
-      document.getElementById('rd-api-key').value = '';
-      document.getElementById('rd-api-key').placeholder = '••••••••' + key.slice(-4);
-      rdSaveStatus.style.display = 'inline';
-      setTimeout(() => { rdSaveStatus.style.display = 'none'; }, 2000);
-    } catch {}
-    rdSaveBtn.disabled = false;
-    rdSaveBtn.textContent = 'Save';
-  });
-
-  document.getElementById('rd-clear-btn').addEventListener('click', async () => {
-    await saveRDApiKey('');
-    document.getElementById('rd-api-key').value = '';
-    document.getElementById('rd-api-key').placeholder = 'Enter your Real-Debrid API key';
-  });
 </script>
 </body>
 </html>
