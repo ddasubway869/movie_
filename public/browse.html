@@ -270,7 +270,7 @@
             const best = torrents[0];
             const magnet = best.magnet || `magnet:?xt=urn:btih:${best.hash}`;
             const streamFn = useRD ? startStreamingRD : startStreaming;
-            const { url, filename, isHls } = await streamFn(magnet, (pct, status) => {
+            const { url, filename } = await streamFn(magnet, (pct, status) => {
               const fill = modalEl.querySelector('.modal-progress-fill');
               if (fill) fill.style.width = `${pct}%`;
               const label = modalEl.querySelector('.modal-status');
@@ -278,7 +278,7 @@
             }, season, episode);
             modalEl.remove();
             const params = new URLSearchParams({ url, title, filename });
-            if (!useRD || isHls) params.set('hls', '1');
+            if (!useRD) params.set('hls', '1');
             params.set('tmdbId', String(tmdbId));
             params.set('mediaType', mediaType);
             params.set('startProgress', String(startProgress));
@@ -691,7 +691,7 @@
       if (fill) fill.style.width = pct + '%';
       if (stat) stat.textContent = status;
     }, episodeInfo?.season, episodeInfo?.episode)
-    .then(async ({ url, filename, isHls }) => {
+    .then(async ({ url, filename }) => {
       // For TorBox HLS only: poll until the stream manifest is ready
       if (!useRD) {
         const stat = modalEl.querySelector('.modal-status');
@@ -709,7 +709,7 @@
       }
       if (document.body.contains(modalEl)) document.body.removeChild(modalEl);
       const q = new URLSearchParams({ url, title, mediaType });
-      if (!useRD || isHls) q.set('hls', '1');
+      if (!useRD) q.set('hls', '1');
       if (tmdbId) q.set('tmdbId', String(tmdbId));
       if (posterPath) q.set('posterPath', posterPath);
       if (startProgress > 0.01) q.set('startProgress', String(startProgress));
