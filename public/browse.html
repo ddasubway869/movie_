@@ -264,9 +264,10 @@
             const torrents = res.data || [];
             if (!torrents.length) throw new Error('No sources found');
             modalEl.remove();
-            const sorted = [...torrents]
-              .filter(t => (t.magnet || t.hash) && (t.cached || t.seeders > 0))
-              .sort((a, b) => {
+            const goodSources = torrents.filter(t => (t.magnet || t.hash) && (t.cached || t.seeders > 0));
+            const fallback = goodSources.length === 0;
+            const pool = fallback ? torrents.filter(t => t.magnet || t.hash) : goodSources;
+            const sorted = [...pool].sort((a, b) => {
                 if (b.cached !== a.cached) return (b.cached ? 1 : 0) - (a.cached ? 1 : 0);
                 return (b.seeders || 0) - (a.seeders || 0);
               });
@@ -597,10 +598,12 @@
     try {
       const res = await searchTorrents(tmdbId, mediaType);
       const torrents = res.data || [];
-      const filtered = torrents.filter(t => (t.magnet || t.hash) && (t.cached || t.seeders > 0));
+      const goodSources = torrents.filter(t => (t.magnet || t.hash) && (t.cached || t.seeders > 0));
+      const fallback = goodSources.length === 0;
+      const filtered = fallback ? torrents.filter(t => t.magnet || t.hash) : goodSources;
       if (filtered.length === 0) { area.innerHTML = `<p class="sources-empty">No sources found.</p>`; return; }
-      area.innerHTML = `<div class="sources-list">${filtered.slice(0, 15).map(t => `
-        <div class="source-item" data-magnet="${escAttr(t.magnet)}">
+      area.innerHTML = `${fallback ? `<p class="sources-empty" style="margin-bottom:8px;font-size:11px;opacity:0.7">Low availability — sources may not work</p>` : ''}<div class="sources-list">${filtered.slice(0, 15).map(t => `
+        <div class="source-item" data-magnet="${escAttr(t.magnet || `magnet:?xt=urn:btih:${t.hash}`)}">
           ${t.cached ? `<span class="source-cached-badge">CACHED</span>` : ''}
           <span class="source-name">${escHtml(t.raw_title || t.name || 'Unknown')}</span>
           <span class="source-meta">${formatBytes(t.size || 0)}</span>
@@ -665,12 +668,12 @@
     const res = await searchTorrents(tvId, 'tv', season, episode);
     const torrents = res.data || [];
     if (torrents.length === 0) { showModal('No sources found', `No results for ${epLabel}.`); return; }
-    const sorted = [...torrents]
-      .filter(t => (t.magnet || t.hash) && (t.cached || t.seeders > 0))
-      .sort((a, b) => {
-        if (b.cached !== a.cached) return (b.cached ? 1 : 0) - (a.cached ? 1 : 0);
-        return (b.seeders || 0) - (a.seeders || 0);
-      });
+    const goodSources = torrents.filter(t => (t.magnet || t.hash) && (t.cached || t.seeders > 0));
+    const pool = goodSources.length > 0 ? goodSources : torrents.filter(t => t.magnet || t.hash);
+    const sorted = [...pool].sort((a, b) => {
+      if (b.cached !== a.cached) return (b.cached ? 1 : 0) - (a.cached ? 1 : 0);
+      return (b.seeders || 0) - (a.seeders || 0);
+    });
     if (!sorted.length) { showModal('No sources found', `No torrent results for ${epLabel}.`); return; }
     const magnets = sorted.slice(0, 8).map(t => t.magnet || `magnet:?xt=urn:btih:${t.hash}`);
     tryStreamWithFallback(magnets, tvName, tvId, 'tv', posterPath, 0, { season, episode, episodeName: epName });
