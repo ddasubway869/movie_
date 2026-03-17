@@ -277,7 +277,8 @@
               if (label) label.textContent = status || '';
             }, season, episode);
             modalEl.remove();
-            const params = new URLSearchParams({ url, title, filename });
+            const finalUrl = isHls ? `/api/hls?url=${encodeURIComponent(url)}` : url;
+            const params = new URLSearchParams({ url: finalUrl, title, filename });
             if (!useRD || isHls) params.set('hls', '1');
             params.set('tmdbId', String(tmdbId));
             params.set('mediaType', mediaType);
@@ -708,7 +709,9 @@
         }
       }
       if (document.body.contains(modalEl)) document.body.removeChild(modalEl);
-      const q = new URLSearchParams({ url, title, mediaType });
+      // Proxy HLS through server to avoid CORS on segment fetches (both TorBox and RD)
+      const finalUrl = isHls ? `/api/hls?url=${encodeURIComponent(url)}` : url;
+      const q = new URLSearchParams({ url: finalUrl, title, mediaType });
       if (!useRD || isHls) q.set('hls', '1');
       if (tmdbId) q.set('tmdbId', String(tmdbId));
       if (posterPath) q.set('posterPath', posterPath);
