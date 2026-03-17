@@ -182,10 +182,13 @@ export async function startStreaming(magnet, onProgress, season, episode) {
   const cached = season == null ? getStreamCache(hash) : null;
   if (cached) {
     onProgress(90, "Getting stream URL…");
-    const dlRes = await requestDownload(cached.torrentId, cached.fileId);
-    if (dlRes.success && dlRes.data) {
-      const u = dlRes.data;
-      return { url: u, filename: cached.filename, isHls: u.includes('.m3u8') || u.includes('/stream/') };
+    const cachedIsMkv = (cached.filename || '').toLowerCase().endsWith('.mkv');
+    if (!cachedIsMkv) {
+      const dlRes = await requestDownload(cached.torrentId, cached.fileId);
+      if (dlRes.success && dlRes.data) {
+        const u = dlRes.data;
+        return { url: u, filename: cached.filename, isHls: u.includes('.m3u8') || u.includes('/stream/') };
+      }
     }
     const streamRes = await createStream(cached.torrentId, cached.fileId);
     if (streamRes.success && streamRes.data) {
@@ -240,13 +243,16 @@ export async function startStreaming(magnet, onProgress, season, episode) {
   console.log('[SLATE] picked file:', JSON.stringify(file));
   if (!file) throw new Error("No video file found");
 
-  // Use requestdl for a direct CDN link — simpler and more reliable than HLS.
-  // Falls back to createStream (HLS transcode) if requestdl fails or returns no URL.
+  // MKV files often have AC3/Dolby audio Chrome can't decode (plays fast, no sound).
+  // Force HLS transcode for MKV so TorBox re-encodes audio to AAC.
+  // For MP4/WebM use requestdl (direct CDN) — faster, no proxy needed.
   let streamUrl;
-  const dlRes = await requestDownload(torrentId, file.id);
-  if (dlRes.success && dlRes.data) {
-    streamUrl = dlRes.data;
-  } else {
+  const isMkv = file.name.toLowerCase().endsWith('.mkv');
+  if (!isMkv) {
+    const dlRes = await requestDownload(torrentId, file.id);
+    if (dlRes.success && dlRes.data) streamUrl = dlRes.data;
+  }
+  if (!streamUrl) {
     const hlsRes = await createStream(torrentId, file.id);
     if (!hlsRes.success || !hlsRes.data) throw new Error(hlsRes.detail || "Failed to get stream URL");
     streamUrl = hlsRes.data;
