@@ -678,7 +678,20 @@
       if (fill) fill.style.width = pct + '%';
       if (stat) stat.textContent = status;
     }, episodeInfo?.season, episodeInfo?.episode)
-    .then(({ url, filename }) => {
+    .then(async ({ url, filename }) => {
+      // Wait for TorBox to finish transcoding the HLS stream before navigating
+      const stat = modalEl.querySelector('.modal-status');
+      const fill = modalEl.querySelector('.modal-progress-fill');
+      for (let attempt = 1; attempt <= 12; attempt++) {
+        try {
+          if (stat) stat.textContent = attempt === 1 ? 'Preparing stream…' : `Preparing stream… (${attempt}/12)`;
+          const r = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(8000) });
+          if (r.ok) break;
+        } catch {}
+        if (attempt === 12) break; // give up and navigate anyway
+        if (fill) fill.style.width = `${Math.min(95, 70 + attempt * 2)}%`;
+        await new Promise(r => setTimeout(r, 5000));
+      }
       if (document.body.contains(modalEl)) document.body.removeChild(modalEl);
       const q = new URLSearchParams({ url, title, mediaType, hls: '1' });
       if (tmdbId) q.set('tmdbId', String(tmdbId));
