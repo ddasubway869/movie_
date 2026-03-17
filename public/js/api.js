@@ -234,13 +234,23 @@ export async function startStreaming(magnet, onProgress, season, episode) {
   console.log('[SLATE] picked file:', JSON.stringify(file));
   if (!file) throw new Error("No video file found");
 
-  const streamRes = await createStream(torrentId, file.id);
-  if (!streamRes.success || !streamRes.data) throw new Error(streamRes.detail || "Failed to get stream URL");
+  // Use requestdl for a direct CDN link — simpler and more reliable than HLS.
+  // Falls back to createStream (HLS transcode) if requestdl fails or returns no URL.
+  let streamUrl;
+  const dlRes = await requestDownload(torrentId, file.id);
+  if (dlRes.success && dlRes.data) {
+    streamUrl = dlRes.data;
+  } else {
+    const hlsRes = await createStream(torrentId, file.id);
+    if (!hlsRes.success || !hlsRes.data) throw new Error(hlsRes.detail || "Failed to get stream URL");
+    streamUrl = hlsRes.data;
+  }
 
   // Cache for movies only — TV episodes must re-select file per episode
   if (season == null) setStreamCache(hash, { torrentId, fileId: file.id, filename: file.name });
 
-  return { url: streamRes.data, filename: file.name };
+  const isHls = streamUrl.includes('.m3u8') || streamUrl.includes('/stream/');
+  return { url: streamUrl, filename: file.name, isHls };
 }
 
 function extractHashFromMagnet(magnet) {

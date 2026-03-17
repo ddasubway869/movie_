@@ -694,29 +694,33 @@
       if (sub) sub.textContent = `Trying source ${attempt + 1} of ${magnets.length}…`;
     }
     try {
-      const { url } = await startStreaming(magnet, (pct, status) => {
+      const { url, isHls } = await startStreaming(magnet, (pct, status) => {
         const fill = modalEl.querySelector('.modal-progress-fill');
         const stat = modalEl.querySelector('.modal-status');
         if (fill) fill.style.width = pct + '%';
         if (stat) stat.textContent = status;
       }, episodeInfo?.season, episodeInfo?.episode);
 
-      // Poll until the TorBox HLS manifest is ready
-      const stat = modalEl.querySelector('.modal-status');
-      const fill = modalEl.querySelector('.modal-progress-fill');
-      for (let p = 1; p <= 12; p++) {
-        try {
-          if (stat) stat.textContent = p === 1 ? 'Preparing stream…' : `Preparing stream… (${p}/12)`;
-          const r = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(8000) });
-          if (r.ok) break;
-        } catch {}
-        if (p === 12) break;
-        if (fill) fill.style.width = `${Math.min(95, 70 + p * 2)}%`;
-        await new Promise(r => setTimeout(r, 5000));
+      // For HLS streams, poll until manifest is ready; direct URLs are immediately playable
+      if (isHls) {
+        const stat = modalEl.querySelector('.modal-status');
+        const fill = modalEl.querySelector('.modal-progress-fill');
+        for (let p = 1; p <= 12; p++) {
+          try {
+            if (stat) stat.textContent = p === 1 ? 'Preparing stream…' : `Preparing stream… (${p}/12)`;
+            const r = await fetch(`/api/hls?url=${encodeURIComponent(url)}`, { method: 'HEAD', signal: AbortSignal.timeout(8000) });
+            if (r.ok) break;
+          } catch {}
+          if (p === 12) break;
+          if (fill) fill.style.width = `${Math.min(95, 70 + p * 2)}%`;
+          await new Promise(r => setTimeout(r, 5000));
+        }
       }
+
       if (document.body.contains(modalEl)) document.body.removeChild(modalEl);
-      const q = new URLSearchParams({ url: `/api/hls?url=${encodeURIComponent(url)}`, title, mediaType });
-      q.set('hls', '1');
+      const finalUrl = isHls ? `/api/hls?url=${encodeURIComponent(url)}` : url;
+      const q = new URLSearchParams({ url: finalUrl, title, mediaType });
+      if (isHls) q.set('hls', '1');
       if (tmdbId) q.set('tmdbId', String(tmdbId));
       if (posterPath) q.set('posterPath', posterPath);
       if (startProgress > 0.01) q.set('startProgress', String(startProgress));

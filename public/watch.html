@@ -192,8 +192,6 @@
     || rawUrl.includes('/hls')
     || rawUrl.includes('torbox.app');
 
-  // TorBox CDN IP-locks the stream token to the viewer's IP, so segments
-  // must be fetched directly by the browser — server-side proxy gets rejected.
   const streamUrl = rawUrl;
 
   console.log('[SLATE] isHls:', isHls, '| url:', rawUrl.slice(0, 80));
