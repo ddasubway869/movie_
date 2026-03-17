@@ -265,7 +265,7 @@
             if (!torrents.length) throw new Error('No sources found');
             modalEl.remove();
             const sorted = [...torrents]
-              .filter(t => t.magnet || t.hash)
+              .filter(t => (t.magnet || t.hash) && t.seeders > 0)
               .sort((a, b) => {
                 if (b.cached !== a.cached) return (b.cached ? 1 : 0) - (a.cached ? 1 : 0);
                 return (b.seeders || 0) - (a.seeders || 0);
@@ -597,8 +597,9 @@
     try {
       const res = await searchTorrents(tmdbId, mediaType);
       const torrents = res.data || [];
-      if (torrents.length === 0) { area.innerHTML = `<p class="sources-empty">No sources found.</p>`; return; }
-      area.innerHTML = `<div class="sources-list">${torrents.slice(0, 15).map(t => `
+      const filtered = torrents.filter(t => (t.magnet || t.hash) && t.seeders > 0);
+      if (filtered.length === 0) { area.innerHTML = `<p class="sources-empty">No sources found.</p>`; return; }
+      area.innerHTML = `<div class="sources-list">${filtered.slice(0, 15).map(t => `
         <div class="source-item" data-magnet="${escAttr(t.magnet)}">
           ${t.cached ? `<span class="source-cached-badge">CACHED</span>` : ''}
           <span class="source-name">${escHtml(t.raw_title || t.name || 'Unknown')}</span>
@@ -665,7 +666,7 @@
     const torrents = res.data || [];
     if (torrents.length === 0) { showModal('No sources found', `No results for ${epLabel}.`); return; }
     const sorted = [...torrents]
-      .filter(t => t.magnet || t.hash)
+      .filter(t => (t.magnet || t.hash) && t.seeders > 0)
       .sort((a, b) => {
         if (b.cached !== a.cached) return (b.cached ? 1 : 0) - (a.cached ? 1 : 0);
         return (b.seeders || 0) - (a.seeders || 0);
