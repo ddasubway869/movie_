@@ -330,8 +330,8 @@ export async function getSettings() {
 async function rdPost(path, body = {}) {
   const res = await fetch(`/api/rd${path}`, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(body).toString(),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
   });
   if (res.status === 204) return { success: true };
   return res.json();
